@@ -1,2 +1,2 @@
-# CandidateGuide.html
+# CandidateGuide.github.io
 Candidate guide
