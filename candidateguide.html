@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>4 step checklist to changing jobs in Japan | Steven Li, Robert Half</title>
+<meta name="description" content="A step by step guide for Japanese speaking cyber security professionals changing jobs in Japan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#CC0033;
+  --midnight:#27323A;
+  --white:#FFFFFF;
+  --sandstone:#E1DDD7;
+  --concrete:#DDE3E8;
+  --monday:#005DA0;
+  --squircle:28% / 28%;
+  --pad:20px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;scroll-padding-top:64px;}
+body{
+  margin:0;
+  font-family:'Noto Sans',Arial,Helvetica,sans-serif;
+  color:var(--midnight);
+  background:var(--white);
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:640px;margin:0 auto;}
+
+/* ---------- header ---------- */
+.brandbar{
+  position:sticky;top:0;z-index:40;
+  background:var(--white);
+  border-bottom:1px solid var(--concrete);
+}
+.brandbar-in{
+  max-width:640px;margin:0 auto;
+  display:flex;align-items:center;gap:10px;
+  padding:12px var(--pad);
+}
+.wordmark{
+  font-weight:700;font-size:13px;letter-spacing:.16em;color:var(--red);
+}
+.wordmark span{color:var(--midnight);font-weight:400;}
+
+/* ---------- hero ---------- */
+.hero{
+  background:var(--midnight);
+  color:var(--white);
+  padding:38px var(--pad) 34px;
+  position:relative;overflow:hidden;
+}
+.hero-in{max-width:640px;margin:0 auto;position:relative;z-index:2;}
+.hero::after{
+  content:"";position:absolute;right:-70px;top:-60px;
+  width:230px;height:230px;border-radius:var(--squircle);
+  border:4px solid rgba(204,0,51,.55);
+  z-index:1;
+}
+.hero::before{
+  content:"";position:absolute;right:60px;bottom:-110px;
+  width:180px;height:180px;border-radius:var(--squircle);
+  background:rgba(225,221,215,.09);
+  z-index:1;
+}
+.eyebrow{
+  font-size:11px;font-weight:700;letter-spacing:.16em;
+  color:var(--red);margin:0 0 12px;
+}
+.hero h1{
+  font-weight:300;font-size:33px;line-height:1.12;
+  margin:0 0 14px;letter-spacing:-.01em;
+}
+.hero h1 b{font-weight:700;}
+.hero p.lede{
+  font-size:17px;line-height:1.45;margin:0 0 22px;
+  color:rgba(255,255,255,.9);max-width:32ch;
+}
+.byline{font-size:13px;line-height:1.5;color:rgba(255,255,255,.72);margin:0;}
+.byline b{color:var(--white);font-weight:600;}
+
+/* ---------- step nav ---------- */
+.stepnav{
+  background:var(--sandstone);
+  padding:14px var(--pad);
+  position:sticky;top:45px;z-index:30;
+  border-bottom:1px solid rgba(39,50,58,.08);
+}
+.stepnav-in{
+  max-width:640px;margin:0 auto;
+  display:flex;gap:8px;overflow-x:auto;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.stepnav-in::-webkit-scrollbar{display:none;}
+.chip{
+  flex:0 0 auto;text-decoration:none;
+  background:var(--white);color:var(--midnight);
+  border:1px solid rgba(39,50,58,.14);
+  border-radius:20px;padding:7px 14px;
+  font-size:13px;font-weight:600;white-space:nowrap;
+  transition:background .18s,color .18s,border-color .18s;
+}
+.chip b{color:var(--red);margin-right:5px;}
+.chip.on{background:var(--midnight);color:var(--white);border-color:var(--midnight);}
+.chip.on b{color:var(--white);}
+
+/* ---------- sections ---------- */
+main{padding:0 var(--pad) 120px;}
+section{padding:34px 0 4px;border-bottom:1px solid var(--concrete);}
+section:last-of-type{border-bottom:0;}
+h2{font-size:22px;font-weight:700;line-height:1.25;margin:0 0 14px;}
+h3{font-size:15px;font-weight:700;margin:26px 0 8px;}
+p{margin:0 0 14px;}
+a{color:var(--monday);text-decoration:underline;text-underline-offset:2px;}
+
+.stephead{display:flex;align-items:flex-start;gap:14px;margin:0 0 18px;}
+.numsq{
+  flex:0 0 auto;width:46px;height:46px;
+  border-radius:var(--squircle);
+  background:var(--red);color:var(--white);
+  display:flex;align-items:center;justify-content:center;
+  font-size:21px;font-weight:700;
+}
+.stephead h2{margin:8px 0 0;}
+
+ul{margin:0 0 16px;padding-left:0;list-style:none;}
+ul li{
+  position:relative;padding-left:20px;margin-bottom:11px;
+}
+ul li::before{
+  content:"";position:absolute;left:0;top:9px;
+  width:7px;height:7px;border-radius:2px;
+  background:var(--red);
+}
+ul.plain li::before{background:var(--concrete);}
+
+/* ---------- timeline ---------- */
+.timeline{margin:18px 0 8px;}
+.trow{
+  display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  padding:13px 14px;border:1px solid var(--concrete);border-bottom:0;
+  font-size:15px;
+}
+.trow:last-child{border-bottom:1px solid var(--concrete);}
+.trow:nth-child(even){background:var(--sandstone);}
+.trow.total{background:var(--midnight);color:var(--white);font-weight:700;border-color:var(--midnight);}
+.trow .dur{flex:0 0 auto;font-weight:600;white-space:nowrap;}
+
+/* ---------- checkable items ---------- */
+.check{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:12px 14px;margin-bottom:8px;
+  border:1px solid var(--concrete);
+  border-radius:10px;background:var(--white);
+  cursor:pointer;user-select:none;
+  transition:background .16s,border-color .16s;
+}
+.check .box{
+  flex:0 0 auto;width:21px;height:21px;margin-top:1px;
+  border:2px solid var(--concrete);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .16s,border-color .16s;
+}
+.check .box svg{width:12px;height:12px;opacity:0;transition:opacity .16s;}
+.check .box svg path{stroke:var(--white);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.check.done{background:#FAFBFB;border-color:var(--sandstone);}
+.check.done .box{background:var(--red);border-color:var(--red);}
+.check.done .box svg{opacity:1;}
+.check.done .label{color:#7A858C;}
+.check .label{font-size:15px;line-height:1.45;}
+.counter{
+  font-size:13px;font-weight:600;color:var(--red);
+  margin:0 0 12px;
+}
+
+/* ---------- callout ---------- */
+.note{
+  background:var(--sandstone);
+  border-radius:12px;padding:16px 18px;margin:18px 0;
+}
+.note p:last-child{margin-bottom:0;}
+.note .lbl{
+  font-size:11px;font-weight:700;letter-spacing:.13em;
+  color:var(--red);display:block;margin-bottom:7px;
+}
+.script{
+  border-left:3px solid var(--red);
+  padding:2px 0 2px 14px;margin:0 0 12px;
+  font-style:italic;color:var(--midnight);
+}
+
+/* ---------- resources / about ---------- */
+.about{font-size:14px;color:#4A555C;}
+.about b{color:var(--midnight);}
+.contact{font-size:14px;line-height:1.7;margin-top:16px;}
+
+/* ---------- sticky CTA ---------- */
+.cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(8px);
+  border-top:1px solid var(--concrete);
+  padding:12px var(--pad) calc(12px + env(safe-area-inset-bottom));
+}
+.cta-in{max-width:640px;margin:0 auto;}
+.cta a{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  background:var(--red);color:var(--white);
+  text-decoration:none;font-weight:700;font-size:16px;
+  padding:15px;border-radius:12px;
+  transition:background .18s;
+}
+.cta a:active{background:#A80029;}
+.cta small{
+  display:block;text-align:center;color:#6C777E;
+  font-size:12px;margin-top:7px;
+}
+
+footer{
+  padding:26px var(--pad) 30px;
+  border-top:1px solid var(--concrete);
+  font-size:12px;color:#7A858C;
+}
+footer .wrap{max-width:640px;}
+
+@media (min-width:680px){
+  :root{--pad:32px;}
+  .hero h1{font-size:40px;}
+  .hero{padding:52px var(--pad) 46px;}
+  h2{font-size:25px;}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important;animation:none !important;}
+  html{scroll-behavior:auto;}
+}
+</style>
+</head>
+<body>
+
+<div class="brandbar">
+  <div class="brandbar-in">
+    <span class="wordmark">ROBERT HALF <span>| CYBER SECURITY</span></span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero-in">
+    <p class="eyebrow">CANDIDATE GUIDE</p>
+    <h1>4 step checklist to changing jobs in Japan, <b>stress free</b></h1>
+    <p class="lede">I help Japanese speaking cyber security people get more than one job offer.</p>
+    <p class="byline"><b>Steven Li</b><br>Director, APAC | Cyber Security and Data<br>Last updated: July 2026</p>
+  </div>
+</header>
+
+<nav class="stepnav" aria-label="Jump to a step">
+  <div class="stepnav-in">
+    <a class="chip" href="#start">Start here</a>
+    <a class="chip" href="#step1"><b>1</b>CV</a>
+    <a class="chip" href="#step2"><b>2</b>Interview</a>
+    <a class="chip" href="#step3"><b>3</b>Documents</a>
+    <a class="chip" href="#step4"><b>4</b>Offer</a>
+    <a class="chip" href="#work">Working together</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section id="start">
+    <h2>What you get when we work together</h2>
+    <ul>
+      <li>You learn what your salary should be. I use real numbers from jobs we filled this year.</li>
+      <li>You see jobs that are not online. More than half of our jobs are never posted on LinkedIn.</li>
+      <li>Your CV goes straight to the hiring manager. We work with them directly on most of our jobs, so your CV does not sit in a pile.</li>
+      <li>You get interview coaching made for cyber security jobs in Japan.</li>
+      <li>I ask for your salary for you. I do this every week, so I know what is possible.</li>
+      <li>I save you more than 100 hours of research and follow up.</li>
+      <li>You pay nothing. The company pays our fee.</li>
+    </ul>
+
+    <h3>How long it takes</h3>
+    <p>Plan for three to six months from first conversation to first day. Senior security roles take longer.</p>
+    <div class="timeline">
+      <div class="trow"><span>CV creation and applications</span><span class="dur">1 to 2 weeks</span></div>
+      <div class="trow"><span>Interviews through to job offer</span><span class="dur">8 to 12 weeks</span></div>
+      <div class="trow"><span>Resignation and notice period</span><span class="dur">4 to 8 weeks</span></div>
+      <div class="trow total"><span>Total</span><span class="dur">3 to 6 months</span></div>
+    </div>
+  </section>
+
+  <section id="step1">
+    <div class="stephead">
+      <div class="numsq" aria-hidden="true">1</div>
+      <h2>CV creation</h2>
+    </div>
+
+    <h3>Connect with me on LINE first</h3>
+    <p>Everything moves faster on LINE than email, especially interview scheduling.</p>
+    <ul>
+      <li>Add me directly: <a href="https://line.me/ti/p/VFbxzpEPH-">line.me/ti/p/VFbxzpEPH-</a></li>
+      <li>Or add my number to your contacts normally: <a href="tel:+818070422165">+81 70 1422 1650</a></li>
+    </ul>
+
+    <h3>Send me your English CV in Word format</h3>
+    <ul>
+      <li>Article: <a href="https://www.linkedin.com/pulse/three-cv-tips-guaranteed-get-you-more-interviews-steven-li/?trackingId=xzpCr68wQ96qz54KkY9V2A%3D%3D">Three CV tips to land your next cyber security interview</a></li>
+      <li><a href="https://docs.google.com/document/d/1v_lmnS79CIPcxEQC8zppYE5-srJ5t5la/edit?usp=drive_link&amp;ouid=100594451565742299685&amp;rtpof=true&amp;sd=true">CV template</a></li>
+      <li>Quantify your achievements, not just your responsibilities. Scope, budget, headcount, incident volume, risk reduction.</li>
+    </ul>
+
+    <h3>Send your Japanese CV and rirekisho if you have them</h3>
+    <ul>
+      <li>More Japanese companies now require both at application stage</li>
+      <li>No photo needed.</li>
+      <li><a href="https://www.daijob.com/en/guide/tipsadvice/resume/rirekisyo/">Rirekisho template</a></li>
+      <li>Once you have created 1 CV, you can use AI to create the other documents</li>
+    </ul>
+  </section>
+
+  <section id="step2">
+    <div class="stephead">
+      <div class="numsq" aria-hidden="true">2</div>
+      <h2>Interview preparation</h2>
+    </div>
+
+    <p>Article: <a href="https://www.linkedin.com/pulse/essential-japan-cyber-security-interview-guide-steven-li-z0ywc/?trackingId=xzpCr68wQ96qz54KkY9V2A%3D%3D">The essential Japan cyber security interview guide</a></p>
+
+    <h3>Spend 20 minutes on the investor relations report</h3>
+    <p>This is the highest return preparation you can do. Focus on:</p>
+    <ul>
+      <li>How revenue is segmented, by product, service or geography.</li>
+      <li>Key technology investments, particularly anything AI, cloud or data related.</li>
+      <li>The forward outlook and stated risks. Security sits directly underneath this.</li>
+    </ul>
+
+    <h3>Do not disclose your current salary or expectations</h3>
+    <p>Once you name a number, you cannot negotiate above it. I handle this conversation for you.</p>
+    <div class="note">
+      <span class="lbl">IF YOU ARE PUSHED</span>
+      <p class="script">"My agent holds the full detail of my salary and benefits, and I would rather not give you a figure that turns out to be wrong."</p>
+      <p>Or give a wide band, for example 15 to 17 million JPY, which preserves room to move.</p>
+    </div>
+
+    <h3>SPI test (Synthetic Personality Inventory)</h3>
+    <p>Designed for graduate hiring, but some Japanese companies still run it on all hires late in the process. It covers language, maths and personality.</p>
+    <ul>
+      <li>Every question is timed and you cannot skip.</li>
+      <li>Each section is separately timed. Overspend on one question and you lose the chance to answer others in that section.</li>
+      <li>English overview: <a href="https://japan-dev.com/blog/spi-test">japan-dev.com/blog/spi-test</a></li>
+      <li>Japanese YouTube channel: <a href="https://www.youtube.com/@oinary">youtube.com/@oinary</a></li>
+      <li>Japanese practice book, optional: <a href="https://amzn.asia/d/0EedvsT">amzn.asia/d/0EedvsT</a></li>
+    </ul>
+  </section>
+
+  <section id="step3">
+    <div class="stephead">
+      <div class="numsq" aria-hidden="true">3</div>
+      <h2>Offer documents and reference checks</h2>
+    </div>
+
+    <p>Send these to me after your second interview. Having them ready means no delay when an offer lands.</p>
+
+    <h3>Documents</h3>
+    <p class="counter" data-counter="docs">0 of 4 ready</p>
+    <div data-group="docs">
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false">
+        <span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span>
+        <span class="label">Zairyu card (residence card) or Japanese driver's licence, front and back.</span>
+      </div>
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false">
+        <span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span>
+        <span class="label">Last two years of gensen choshu hyo (year end tax summary).</span>
+      </div>
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false">
+        <span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span>
+        <span class="label">Last three months of payslips.</span>
+      </div>
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false">
+        <span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span>
+        <span class="label">Last two bonus payslips.</span>
+      </div>
+    </div>
+
+    <h3>Reference checks</h3>
+    <p>Two references are required. Please let them know I will be in touch to arrange a time.</p>
+    <ul>
+      <li>At least one person who directly managed you.</li>
+      <li>Ideally someone who worked closely with you on security work.</li>
+      <li>Avoid your current employer unless you are comfortable with them knowing you are moving.</li>
+    </ul>
+    <p>For each reference I need: name, contact number, email, company, position, and whether they can speak English.</p>
+    <ul>
+      <li>Reference check, <a href="https://drive.google.com/file/d/1tgpZ5gqJmtGsqpC6iGbT-Ljkvb2mbtpJ/view?usp=drive_link">English form</a></li>
+    </ul>
+  </section>
+
+  <section id="step4">
+    <div class="stephead">
+      <div class="numsq" aria-hidden="true">4</div>
+      <h2>Offer acceptance and resignation</h2>
+    </div>
+
+    <h3>Questions to ask in the offer meeting</h3>
+    <ul>
+      <li>How is the bonus calculated, and how much of it is company, team and personal performance?</li>
+      <li>Which months is the bonus paid?</li>
+      <li>In year one, do new joiners receive the full bonus or is it prorated to your start date?</li>
+      <li>What is the review cycle, and when would your first salary review fall?</li>
+    </ul>
+
+    <h3>Resignation checklist</h3>
+    <p class="counter" data-counter="resign">0 of 10 done</p>
+    <div data-group="resign">
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label">Sign the offer letter and confirm your start date with the new employer.</span></div>
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label">Check your notice period in your employment rules (shugyo kisoku). One month is the common standard in Japan</span></div>
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label">Start dates are usually the 1st or 15th of the month, because onboarding runs in batches.</span></div>
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label">Decide your last working day and your last day on payroll. These are often different.</span></div>
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label">Unused annual leave is generally not paid out, so plan to use it before your final day.</span></div>
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label">Prepare a written list of open tasks and responsibilities for handover.</span></div>
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label">Book a meeting with your manager to resign in person. If they are away for more than a few days, speak to their manager instead.</span></div>
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label">Follow the meeting with a short email so the resignation is on record.</span></div>
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label">Prepare your response to a counter offer in advance.</span></div>
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label">Expect paper forms by post from Japanese employers before you start.</span></div>
+    </div>
+
+    <div class="note">
+      <span class="lbl">ON COUNTER OFFERS</span>
+      <p>A counter offer usually fixes the salary and none of the reasons you started looking. In our experience the large majority of people who accept one are back in the market within six months, having lost the offer they had and some credibility internally.</p>
+    </div>
+  </section>
+
+  <section id="work">
+    <h2>How we work together</h2>
+    <p>I can deliver the above because I work with a maximum of ten candidates at a time. Two things make the process work:</p>
+    <ul>
+      <li><b>Let me represent you.</b> If you see a role elsewhere, through another agent or directly, come to me first. Companies typically hold a 12 month ownership period on any application, so once your CV is in through another route I cannot help you there. You may also never reach interview, because most agents do not have the hiring manager relationship to follow up on your behalf.</li>
+      <li><b>Reply quickly on scheduling.</b> Interview slots for senior security leaders move fast</li>
+    </ul>
+
+    <h3>Compliance registration</h3>
+    <p>A colleague will send you a two minute DocuSign form asking for your name, mobile, email and signature. This is the compliance document that lets me send your CV to clients with your permission.</p>
+  </section>
+
+  <section id="resources">
+    <h2>Bonus resources</h2>
+    <ul>
+      <li><a href="https://docs.google.com/document/d/1lW2qogWcFlvLgU0xMT-rLmbPhEOtESzZxqIJmQMxtUw/edit?usp=sharing"><b>Building wealth in Japan</b></a>. My tips on reducing tax here: property investment, NISA, furusato nozei, permanent residency application, dependent deduction and angel fund investment.</li>
+      <li><a href="https://www.linkedin.com/pulse/mastering-performance-reviews-proven-strategies-career-steven-li-wbhnc/?trackingId=xzpCr68wQ96qz54KkY9V2A%3D%3D"><b>Mastering performance reviews</b></a>: proven strategies for career success.</li>
+      <li><b>2026 Robert Half Japan Salary Guide</b>, technology and IT: <a href="https://www.roberthalf.com/jp/en/insights/salary-guide/technology">roberthalf.com/jp/en/insights/salary-guide/technology</a></li>
+    </ul>
+
+    <h3>Referrals</h3>
+    <p>I have spent more than 10,000 hours with hiring managers to make this process as smooth as possible for you. If it helps you, forward it to someone who needs it. We offer a 30,000 JPY Amazon gift voucher for a successful new client or candidate referral, payable once the candidate passes three months in the role.</p>
+  </section>
+
+  <section id="about">
+    <h2>About Steven Li</h2>
+    <div class="about">
+      <p>Steven is a Director at Robert Half's Tokyo office, leading the cyber security and data recruitment practice.</p>
+      <p>He hosts invitation only senior leadership roundtables with partners including Google, Microsoft and Sony. Before recruitment, he spent his career at two tier one Australian banks as a Market Risk Oversight Manager in financial markets.</p>
+      <p>Come and meet the community at the next Cyber Risk Meetup. Details are posted on LinkedIn: <a href="https://www.cyberriskmeetup.com/tokyo">cyberriskmeetup.com/tokyo</a></p>
+      <p class="contact"><b>Robert Half, Tokyo office</b><br>
+      <a href="tel:+818070422165">+81 70 1422 1650</a><br>
+      <a href="mailto:steven.li@roberthalf.jp">steven.li@roberthalf.jp</a><br>
+      <a href="https://www.linkedin.com/in/cybersteve/">Full bio</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">Robert Half, Tokyo. Last updated July 2026. Your checklist marks are kept on this page only and clear when you close it.</div>
+</footer>
+
+<div class="cta">
+  <div class="cta-in">
+    <a href="https://line.me/ti/p/VFbxzpEPH-">Add me on LINE to get started</a>
+    <small>Or email steven.li@roberthalf.jp</small>
+  </div>
+</div>
+
+<script>
+(function(){
+  // Tappable checklist items, in-page state only
+  var groups = {};
+  document.querySelectorAll('[data-group]').forEach(function(g){
+    var key = g.getAttribute('data-group');
+    var items = g.querySelectorAll('.check');
+    groups[key] = { items: items, total: items.length };
+    items.forEach(function(item){
+      function toggle(){
+        var on = item.classList.toggle('done');
+        item.setAttribute('aria-checked', on ? 'true' : 'false');
+        update(key);
+      }
+      item.addEventListener('click', toggle);
+      item.addEventListener('keydown', function(e){
+        if(e.key === ' ' || e.key === 'Enter'){ e.preventDefault(); toggle(); }
+      });
+    });
+  });
+
+  function update(key){
+    var g = groups[key];
+    var done = 0;
+    g.items.forEach(function(i){ if(i.classList.contains('done')) done++; });
+    var el = document.querySelector('[data-counter="' + key + '"]');
+    if(!el) return;
+    var word = key === 'docs' ? 'ready' : 'done';
+    el.textContent = done + ' of ' + g.total + ' ' + word;
+    el.style.color = (done === g.total) ? '#0B6E76' : '#CC0033';
+  }
+
+  // Highlight the current step in the nav
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var targets = chips.map(function(c){ return document.querySelector(c.getAttribute('href')); });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var idx = targets.indexOf(e.target);
+      chips.forEach(function(c,i){ c.classList.toggle('on', i === idx); });
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  targets.forEach(function(t){ if(t) io.observe(t); });
+})();
+</script>
+
+</body>
+</html>
