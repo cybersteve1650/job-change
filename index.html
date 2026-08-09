@@ -7,7 +7,7 @@
 <meta name="description" content="A step by step guide for Japanese speaking cyber security professionals changing jobs in Japan.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Noto+Sans+JP:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --red:#CC0033;
@@ -23,7 +23,7 @@
 html{scroll-behavior:smooth;scroll-padding-top:64px;}
 body{
   margin:0;
-  font-family:'Noto Sans',Arial,Helvetica,sans-serif;
+  font-family:'Noto Sans','Noto Sans JP',Arial,Helvetica,sans-serif;
   color:var(--midnight);
   background:var(--white);
   font-size:16px;
@@ -31,6 +31,14 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 .wrap{max-width:640px;margin:0 auto;}
+
+/* ---------- language switching ---------- */
+body:not(.ja) [lang="ja"]{display:none;}
+body.ja [lang="en"]{display:none;}
+body.ja{line-height:1.75;}
+body.ja .hero h1{line-height:1.3;font-size:29px;letter-spacing:0;}
+body.ja .hero p.lede{max-width:24em;}
+body.ja h2{line-height:1.4;}
 
 /* ---------- header ---------- */
 .brandbar{
@@ -40,13 +48,26 @@ body{
 }
 .brandbar-in{
   max-width:640px;margin:0 auto;
-  display:flex;align-items:center;gap:10px;
-  padding:12px var(--pad);
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:10px var(--pad);
 }
 .wordmark{
   font-weight:700;font-size:13px;letter-spacing:.16em;color:var(--red);
 }
 .wordmark span{color:var(--midnight);font-weight:400;}
+.langbtn{
+  flex:0 0 auto;
+  display:flex;align-items:center;gap:0;
+  border:1px solid var(--concrete);border-radius:18px;
+  background:var(--white);padding:2px;cursor:pointer;
+  font-family:inherit;
+}
+.langbtn span{
+  display:block;padding:5px 12px;border-radius:16px;
+  font-size:12px;font-weight:700;color:#7A858C;
+  transition:background .18s,color .18s;
+}
+.langbtn span.on{background:var(--midnight);color:var(--white);}
 
 /* ---------- hero ---------- */
 .hero{
@@ -81,6 +102,7 @@ body{
   font-size:17px;line-height:1.45;margin:0 0 22px;
   color:rgba(255,255,255,.9);max-width:32ch;
 }
+body.ja .hero p.lede{line-height:1.7;}
 .byline{font-size:13px;line-height:1.5;color:rgba(255,255,255,.72);margin:0;}
 .byline b{color:var(--white);font-weight:600;}
 
@@ -88,7 +110,7 @@ body{
 .stepnav{
   background:var(--sandstone);
   padding:14px var(--pad);
-  position:sticky;top:45px;z-index:30;
+  position:sticky;top:43px;z-index:30;
   border-bottom:1px solid rgba(39,50,58,.08);
 }
 .stepnav-in{
@@ -137,7 +159,6 @@ ul li::before{
   width:7px;height:7px;border-radius:2px;
   background:var(--red);
 }
-ul.plain li::before{background:var(--concrete);}
 
 /* ---------- timeline ---------- */
 .timeline{margin:18px 0 8px;}
@@ -173,6 +194,7 @@ ul.plain li::before{background:var(--concrete);}
 .check.done .box svg{opacity:1;}
 .check.done .label{color:#7A858C;}
 .check .label{font-size:15px;line-height:1.45;}
+body.ja .check .label{line-height:1.7;}
 .counter{
   font-size:13px;font-weight:600;color:var(--red);
   margin:0 0 12px;
@@ -193,6 +215,7 @@ ul.plain li::before{background:var(--concrete);}
   padding:2px 0 2px 14px;margin:0 0 12px;
   font-style:italic;color:var(--midnight);
 }
+body.ja .script{font-style:normal;}
 
 /* ---------- resources / about ---------- */
 .about{font-size:14px;color:#4A555C;}
@@ -231,6 +254,7 @@ footer .wrap{max-width:640px;}
 @media (min-width:680px){
   :root{--pad:32px;}
   .hero h1{font-size:40px;}
+  body.ja .hero h1{font-size:34px;}
   .hero{padding:52px var(--pad) 46px;}
   h2{font-size:25px;}
 }
@@ -245,257 +269,342 @@ footer .wrap{max-width:640px;}
 <div class="brandbar">
   <div class="brandbar-in">
     <span class="wordmark">ROBERT HALF <span>| CYBER SECURITY</span></span>
+    <button class="langbtn" id="langbtn" type="button" aria-label="Switch language / 言語を切り替える">
+      <span class="on" data-l="en">EN</span>
+      <span data-l="ja">日本語</span>
+    </button>
   </div>
 </div>
 
 <header class="hero">
   <div class="hero-in">
-    <p class="eyebrow">CANDIDATE GUIDE</p>
-    <h1>4 step checklist to changing jobs in Japan, <b>stress free</b></h1>
-    <p class="lede">I help Japanese speaking cyber security people get more than one job offer.</p>
-    <p class="byline"><b>Steven Li</b><br>Director, APAC | Cyber Security and Data<br>Last updated: July 2026</p>
+    <p class="eyebrow"><span lang="en">CANDIDATE GUIDE</span><span lang="ja">候補者向けガイド</span></p>
+    <h1><span lang="en">4 step checklist to changing jobs in Japan, <b>stress free</b></span><span lang="ja">ストレスなく転職するための<b>4ステップ チェックリスト</b></span></h1>
+    <p class="lede"><span lang="en">I help Japanese speaking cyber security people get more than one job offer.</span><span lang="ja">日本語を話すサイバーセキュリティ人材の方が、複数の内定を得られるようお手伝いします。</span></p>
+    <p class="byline"><b>Steven Li</b><br>
+      <span lang="en">Director, APAC | Cyber Security and Data<br>Last updated: July 2026</span>
+      <span lang="ja">ディレクター（APAC）｜サイバーセキュリティ・データ<br>最終更新：2026年7月</span>
+    </p>
   </div>
 </header>
 
 <nav class="stepnav" aria-label="Jump to a step">
   <div class="stepnav-in">
-    <a class="chip" href="#start">Start here</a>
-    <a class="chip" href="#step1"><b>1</b>CV</a>
-    <a class="chip" href="#step2"><b>2</b>Interview</a>
-    <a class="chip" href="#step3"><b>3</b>Documents</a>
-    <a class="chip" href="#step4"><b>4</b>Offer</a>
-    <a class="chip" href="#work">Working together</a>
+    <a class="chip" href="#start"><span lang="en">Start here</span><span lang="ja">はじめに</span></a>
+    <a class="chip" href="#step1"><b>1</b><span lang="en">CV</span><span lang="ja">書類</span></a>
+    <a class="chip" href="#step2"><b>2</b><span lang="en">Interview</span><span lang="ja">面接</span></a>
+    <a class="chip" href="#step3"><b>3</b><span lang="en">Documents</span><span lang="ja">必要書類</span></a>
+    <a class="chip" href="#step4"><b>4</b><span lang="en">Offer</span><span lang="ja">内定</span></a>
+    <a class="chip" href="#work"><span lang="en">Working together</span><span lang="ja">進め方</span></a>
   </div>
 </nav>
 
 <main class="wrap">
 
   <section id="start">
-    <h2>What you get when we work together</h2>
+    <h2><span lang="en">What you get when we work together</span><span lang="ja">私と一緒に進めるメリット</span></h2>
     <ul>
-      <li>You learn what your salary should be. I use real numbers from jobs we filled this year.</li>
-      <li>You see jobs that are not online. More than half of our jobs are never posted on LinkedIn.</li>
-      <li>Your CV goes straight to the hiring manager. We work with them directly on most of our jobs, so your CV does not sit in a pile.</li>
-      <li>You get interview coaching made for cyber security jobs in Japan.</li>
-      <li>I ask for your salary for you. I do this every week, so I know what is possible.</li>
-      <li>I save you more than 100 hours of research and follow up.</li>
-      <li>You pay nothing. The company pays our fee.</li>
+      <li lang="en">You learn what your salary should be. I use real numbers from jobs we filled this year.</li>
+      <li lang="ja">適正な年収がわかります。今年実際に決まった案件の数字をもとにお伝えします。</li>
+      <li lang="en">You see jobs that are not online. More than half of our jobs are never posted on LinkedIn.</li>
+      <li lang="ja">公開されていない求人をご紹介します。当社の求人の半分以上はLinkedInに掲載していません。</li>
+      <li lang="en">Your CV goes straight to the hiring manager. We work with them directly on most of our jobs, so your CV does not sit in a pile.</li>
+      <li lang="ja">書類は採用責任者に直接届きます。ほとんどの求人で採用責任者と直接やり取りしているため、書類が埋もれることはありません。</li>
+      <li lang="en">You get interview coaching made for cyber security jobs in Japan.</li>
+      <li lang="ja">日本のサイバーセキュリティ求人に特化した面接対策を受けられます。</li>
+      <li lang="en">I ask for your salary for you. I do this every week, so I know what is possible.</li>
+      <li lang="ja">年収交渉は私が行います。毎週行っているので、どこまで可能かを把握しています。</li>
+      <li lang="en">I save you more than 100 hours of research and follow up.</li>
+      <li lang="ja">100時間以上の情報収集とフォローの手間を省けます。</li>
+      <li lang="en">You pay nothing. The company pays our fee.</li>
+      <li lang="ja">費用はかかりません。企業側が当社に費用を支払います。</li>
     </ul>
 
-    <h3>How long it takes</h3>
-    <p>Plan for three to six months from first conversation to first day. Senior security roles take longer.</p>
+    <h3><span lang="en">How long it takes</span><span lang="ja">期間の目安</span></h3>
+    <p lang="en">Plan for three to six months from first conversation to first day. Senior security roles take longer.</p>
+    <p lang="ja">最初のご相談から入社までは3か月から6か月をみておいてください。シニアクラスの求人はさらに時間がかかります。</p>
     <div class="timeline">
-      <div class="trow"><span>CV creation and applications</span><span class="dur">1 to 2 weeks</span></div>
-      <div class="trow"><span>Interviews through to job offer</span><span class="dur">8 to 12 weeks</span></div>
-      <div class="trow"><span>Resignation and notice period</span><span class="dur">4 to 8 weeks</span></div>
-      <div class="trow total"><span>Total</span><span class="dur">3 to 6 months</span></div>
+      <div class="trow">
+        <span><span lang="en">CV creation and applications</span><span lang="ja">書類の作成と応募</span></span>
+        <span class="dur"><span lang="en">1 to 2 weeks</span><span lang="ja">1〜2週間</span></span>
+      </div>
+      <div class="trow">
+        <span><span lang="en">Interviews through to job offer</span><span lang="ja">面接から内定まで</span></span>
+        <span class="dur"><span lang="en">8 to 12 weeks</span><span lang="ja">8〜12週間</span></span>
+      </div>
+      <div class="trow">
+        <span><span lang="en">Resignation and notice period</span><span lang="ja">退職手続きと引き継ぎ</span></span>
+        <span class="dur"><span lang="en">4 to 8 weeks</span><span lang="ja">4〜8週間</span></span>
+      </div>
+      <div class="trow total">
+        <span><span lang="en">Total</span><span lang="ja">合計</span></span>
+        <span class="dur"><span lang="en">3 to 6 months</span><span lang="ja">3〜6か月</span></span>
+      </div>
     </div>
   </section>
 
   <section id="step1">
     <div class="stephead">
       <div class="numsq" aria-hidden="true">1</div>
-      <h2>CV creation</h2>
+      <h2><span lang="en">CV creation</span><span lang="ja">応募書類の作成</span></h2>
     </div>
 
-    <h3>Connect with me on LINE first</h3>
-    <p>Everything moves faster on LINE than email, especially interview scheduling.</p>
+    <h3><span lang="en">Connect with me on LINE first</span><span lang="ja">まずLINEでつながってください</span></h3>
+    <p lang="en">Everything moves faster on LINE than email, especially interview scheduling.</p>
+    <p lang="ja">メールよりLINEの方が早く進みます。特に面接日程の調整がスムーズです。</p>
     <ul>
-      <li>Add me directly: <a href="https://line.me/ti/p/VFbxzpEPH-">line.me/ti/p/VFbxzpEPH-</a></li>
-      <li>Or add my number to your contacts normally: <a href="tel:+818070422165">+81 70 1422 1650</a></li>
+      <li lang="en">Add me directly: <a href="https://line.me/ti/p/VFbxzpEPH-">line.me/ti/p/VFbxzpEPH-</a></li>
+      <li lang="ja">こちらから追加してください：<a href="https://line.me/ti/p/VFbxzpEPH-">line.me/ti/p/VFbxzpEPH-</a></li>
+      <li lang="en">Or add my number to your contacts normally: <a href="tel:+818070422165">+81 70 1422 1650</a></li>
+      <li lang="ja">または電話番号で検索してください：<a href="tel:+818070422165">+81 70 1422 1650</a></li>
     </ul>
 
-    <h3>Send me your English CV in Word format</h3>
+    <h3><span lang="en">Send me your English CV in Word format</span><span lang="ja">英文の職務経歴書をWord形式でお送りください</span></h3>
     <ul>
-      <li>Article: <a href="https://www.linkedin.com/pulse/three-cv-tips-guaranteed-get-you-more-interviews-steven-li/?trackingId=xzpCr68wQ96qz54KkY9V2A%3D%3D">Three CV tips to land your next cyber security interview</a></li>
-      <li><a href="https://docs.google.com/document/d/1v_lmnS79CIPcxEQC8zppYE5-srJ5t5la/edit?usp=drive_link&amp;ouid=100594451565742299685&amp;rtpof=true&amp;sd=true">CV template</a></li>
-      <li>Quantify your achievements, not just your responsibilities. Scope, budget, headcount, incident volume, risk reduction.</li>
+      <li lang="en">Article: <a href="https://www.linkedin.com/pulse/three-cv-tips-guaranteed-get-you-more-interviews-steven-li/?trackingId=xzpCr68wQ96qz54KkY9V2A%3D%3D">Three CV tips to land your next cyber security interview</a></li>
+      <li lang="ja">記事：<a href="https://www.linkedin.com/pulse/three-cv-tips-guaranteed-get-you-more-interviews-steven-li/?trackingId=xzpCr68wQ96qz54KkY9V2A%3D%3D">面接につながる職務経歴書の3つのコツ</a></li>
+      <li lang="en"><a href="https://docs.google.com/document/d/1v_lmnS79CIPcxEQC8zppYE5-srJ5t5la/edit?usp=drive_link&amp;ouid=100594451565742299685&amp;rtpof=true&amp;sd=true">CV template</a></li>
+      <li lang="ja"><a href="https://docs.google.com/document/d/1v_lmnS79CIPcxEQC8zppYE5-srJ5t5la/edit?usp=drive_link&amp;ouid=100594451565742299685&amp;rtpof=true&amp;sd=true">職務経歴書テンプレート</a></li>
+      <li lang="en">Quantify your achievements, not just your responsibilities. Scope, budget, headcount, incident volume, risk reduction.</li>
+      <li lang="ja">業務内容だけでなく、実績を数字で書いてください。担当範囲、予算、人数、対応件数、リスク削減など。</li>
     </ul>
 
-    <h3>Send your Japanese CV and rirekisho if you have them</h3>
+    <h3><span lang="en">Send your Japanese CV and rirekisho if you have them</span><span lang="ja">日本語の職務経歴書と履歴書もあればお送りください</span></h3>
     <ul>
-      <li>More Japanese companies now require both at application stage</li>
-      <li>No photo needed.</li>
-      <li><a href="https://www.daijob.com/en/guide/tipsadvice/resume/rirekisyo/">Rirekisho template</a></li>
-      <li>Once you have created 1 CV, you can use AI to create the other documents</li>
+      <li lang="en">More Japanese companies now require both at application stage</li>
+      <li lang="ja">応募の段階で両方を求める企業が増えています</li>
+      <li lang="en">No photo needed.</li>
+      <li lang="ja">写真は不要です。</li>
+      <li lang="en"><a href="https://www.daijob.com/en/guide/tipsadvice/resume/rirekisyo/">Rirekisho template</a></li>
+      <li lang="ja"><a href="https://www.daijob.com/en/guide/tipsadvice/resume/rirekisyo/">履歴書テンプレート</a></li>
+      <li lang="en">Once you have created 1 CV, you can use AI to create the other documents</li>
+      <li lang="ja">1つ作成すれば、AIを使って他の書類も作成できます</li>
     </ul>
   </section>
 
   <section id="step2">
     <div class="stephead">
       <div class="numsq" aria-hidden="true">2</div>
-      <h2>Interview preparation</h2>
+      <h2><span lang="en">Interview preparation</span><span lang="ja">面接の準備</span></h2>
     </div>
 
-    <p>Article: <a href="https://www.linkedin.com/pulse/essential-japan-cyber-security-interview-guide-steven-li-z0ywc/?trackingId=xzpCr68wQ96qz54KkY9V2A%3D%3D">The essential Japan cyber security interview guide</a></p>
+    <p lang="en">Article: <a href="https://www.linkedin.com/pulse/essential-japan-cyber-security-interview-guide-steven-li-z0ywc/?trackingId=xzpCr68wQ96qz54KkY9V2A%3D%3D">The essential Japan cyber security interview guide</a></p>
+    <p lang="ja">記事：<a href="https://www.linkedin.com/pulse/essential-japan-cyber-security-interview-guide-steven-li-z0ywc/?trackingId=xzpCr68wQ96qz54KkY9V2A%3D%3D">日本のサイバーセキュリティ面接ガイド</a></p>
 
-    <h3>Spend 20 minutes on the investor relations report</h3>
-    <p>This is the highest return preparation you can do. Focus on:</p>
+    <h3><span lang="en">Spend 20 minutes on the investor relations report</span><span lang="ja">決算資料（IR資料）を20分読んでください</span></h3>
+    <p lang="en">This is the highest return preparation you can do. Focus on:</p>
+    <p lang="ja">最も効果の高い準備です。次の点を見てください。</p>
     <ul>
-      <li>How revenue is segmented, by product, service or geography.</li>
-      <li>Key technology investments, particularly anything AI, cloud or data related.</li>
-      <li>The forward outlook and stated risks. Security sits directly underneath this.</li>
+      <li lang="en">How revenue is segmented, by product, service or geography.</li>
+      <li lang="ja">売上の内訳。製品別、サービス別、地域別。</li>
+      <li lang="en">Key technology investments, particularly anything AI, cloud or data related.</li>
+      <li lang="ja">重点的な技術投資。特にAI、クラウド、データ関連。</li>
+      <li lang="en">The forward outlook and stated risks. Security sits directly underneath this.</li>
+      <li lang="ja">今後の見通しと、記載されているリスク。セキュリティはここに直接つながります。</li>
     </ul>
 
-    <h3>Do not disclose your current salary or expectations</h3>
-    <p>Once you name a number, you cannot negotiate above it. I handle this conversation for you.</p>
+    <h3><span lang="en">Do not disclose your current salary or expectations</span><span lang="ja">現在の年収や希望額は伝えないでください</span></h3>
+    <p lang="en">Once you name a number, you cannot negotiate above it. I handle this conversation for you.</p>
+    <p lang="ja">一度金額を伝えると、それ以上の交渉はできません。この話は私が行います。</p>
     <div class="note">
-      <span class="lbl">IF YOU ARE PUSHED</span>
-      <p class="script">"My agent holds the full detail of my salary and benefits, and I would rather not give you a figure that turns out to be wrong."</p>
-      <p>Or give a wide band, for example 15 to 17 million JPY, which preserves room to move.</p>
+      <span class="lbl"><span lang="en">IF YOU ARE PUSHED</span><span lang="ja">聞かれたときの答え方</span></span>
+      <p class="script" lang="en">"My agent holds the full detail of my salary and benefits, and I would rather not give you a figure that turns out to be wrong."</p>
+      <p class="script" lang="ja">「年収や待遇の詳細はエージェントが把握しています。誤った金額をお伝えしたくないので、そちらにご確認ください。」</p>
+      <p lang="en">Or give a wide band, for example 15 to 17 million JPY, which preserves room to move.</p>
+      <p lang="ja">または幅を持たせて答えてください。例えば1,500万円から1,700万円と伝えれば、交渉の余地が残ります。</p>
     </div>
 
-    <h3>SPI test (Synthetic Personality Inventory)</h3>
-    <p>Designed for graduate hiring, but some Japanese companies still run it on all hires late in the process. It covers language, maths and personality.</p>
+    <h3><span lang="en">SPI test (Synthetic Personality Inventory)</span><span lang="ja">SPI（総合適性検査）</span></h3>
+    <p lang="en">Designed for graduate hiring, but some Japanese companies still run it on all hires late in the process. It covers language, maths and personality.</p>
+    <p lang="ja">本来は新卒採用向けですが、選考の終盤で全員に実施する企業もあります。言語、非言語（計数）、性格検査で構成されています。</p>
     <ul>
-      <li>Every question is timed and you cannot skip.</li>
-      <li>Each section is separately timed. Overspend on one question and you lose the chance to answer others in that section.</li>
-      <li>English overview: <a href="https://japan-dev.com/blog/spi-test">japan-dev.com/blog/spi-test</a></li>
-      <li>Japanese YouTube channel: <a href="https://www.youtube.com/@oinary">youtube.com/@oinary</a></li>
-      <li>Japanese practice book, optional: <a href="https://amzn.asia/d/0EedvsT">amzn.asia/d/0EedvsT</a></li>
+      <li lang="en">Every question is timed and you cannot skip.</li>
+      <li lang="ja">各問題に制限時間があり、飛ばすことはできません。</li>
+      <li lang="en">Each section is separately timed. Overspend on one question and you lose the chance to answer others in that section.</li>
+      <li lang="ja">分野ごとにも制限時間があります。1問に時間を使いすぎると、その分野の残りの問題に答えられなくなります。</li>
+      <li lang="en">English overview: <a href="https://japan-dev.com/blog/spi-test">japan-dev.com/blog/spi-test</a></li>
+      <li lang="ja">英語の解説：<a href="https://japan-dev.com/blog/spi-test">japan-dev.com/blog/spi-test</a></li>
+      <li lang="en">Japanese YouTube channel: <a href="https://www.youtube.com/@oinary">youtube.com/@oinary</a></li>
+      <li lang="ja">日本語のYouTubeチャンネル：<a href="https://www.youtube.com/@oinary">youtube.com/@oinary</a></li>
+      <li lang="en">Japanese practice book, optional: <a href="https://amzn.asia/d/0EedvsT">amzn.asia/d/0EedvsT</a></li>
+      <li lang="ja">日本語の対策本（任意）：<a href="https://amzn.asia/d/0EedvsT">amzn.asia/d/0EedvsT</a></li>
     </ul>
   </section>
 
   <section id="step3">
     <div class="stephead">
       <div class="numsq" aria-hidden="true">3</div>
-      <h2>Offer documents and reference checks</h2>
+      <h2><span lang="en">Offer documents and reference checks</span><span lang="ja">必要書類とリファレンスチェック</span></h2>
     </div>
 
-    <p>Send these to me after your second interview. Having them ready means no delay when an offer lands.</p>
+    <p lang="en">Send these to me after your second interview. Having them ready means no delay when an offer lands.</p>
+    <p lang="ja">二次面接の後にお送りください。事前に準備しておくと、内定が出たときに手続きが遅れません。</p>
 
-    <h3>Documents</h3>
-    <p class="counter" data-counter="docs">0 of 4 ready</p>
+    <h3><span lang="en">Documents</span><span lang="ja">必要書類</span></h3>
+    <p class="counter" data-counter="docs"></p>
     <div data-group="docs">
       <div class="check" role="checkbox" tabindex="0" aria-checked="false">
         <span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span>
-        <span class="label">Zairyu card (residence card) or Japanese driver's licence, front and back.</span>
+        <span class="label"><span lang="en">Zairyu card (residence card) or Japanese driver's licence, front and back.</span><span lang="ja">在留カードまたは運転免許証の、表と裏の写真。</span></span>
       </div>
       <div class="check" role="checkbox" tabindex="0" aria-checked="false">
         <span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span>
-        <span class="label">Last two years of gensen choshu hyo (year end tax summary).</span>
+        <span class="label"><span lang="en">Last two years of gensen choshu hyo (year end tax summary).</span><span lang="ja">直近2年分の源泉徴収票。</span></span>
       </div>
       <div class="check" role="checkbox" tabindex="0" aria-checked="false">
         <span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span>
-        <span class="label">Last three months of payslips.</span>
+        <span class="label"><span lang="en">Last three months of payslips.</span><span lang="ja">直近3か月分の給与明細。</span></span>
       </div>
       <div class="check" role="checkbox" tabindex="0" aria-checked="false">
         <span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span>
-        <span class="label">Last two bonus payslips.</span>
+        <span class="label"><span lang="en">Last two bonus payslips.</span><span lang="ja">直近2回分の賞与明細。</span></span>
       </div>
     </div>
 
-    <h3>Reference checks</h3>
-    <p>Two references are required. Please let them know I will be in touch to arrange a time.</p>
+    <h3><span lang="en">Reference checks</span><span lang="ja">リファレンスチェック</span></h3>
+    <p lang="en">Two references are required. Please let them know I will be in touch to arrange a time.</p>
+    <p lang="ja">2名分が必要です。私から日程調整のご連絡をすることを、事前にお伝えください。</p>
     <ul>
-      <li>At least one person who directly managed you.</li>
-      <li>Ideally someone who worked closely with you on security work.</li>
-      <li>Avoid your current employer unless you are comfortable with them knowing you are moving.</li>
+      <li lang="en">At least one person who directly managed you.</li>
+      <li lang="ja">1名は直属の上司だった方。</li>
+      <li lang="en">Ideally someone who worked closely with you on security work.</li>
+      <li lang="ja">セキュリティ業務で近くで働いていた方が理想です。</li>
+      <li lang="en">Avoid your current employer unless you are comfortable with them knowing you are moving.</li>
+      <li lang="ja">現在の勤務先は、転職を知られても問題ない場合を除いて避けてください。</li>
     </ul>
-    <p>For each reference I need: name, contact number, email, company, position, and whether they can speak English.</p>
+    <p lang="en">For each reference I need: name, contact number, email, company, position, and whether they can speak English.</p>
+    <p lang="ja">各方について、氏名、電話番号、メールアドレス、会社名、役職、英語対応の可否をお知らせください。</p>
     <ul>
-      <li>Reference check, <a href="https://drive.google.com/file/d/1tgpZ5gqJmtGsqpC6iGbT-Ljkvb2mbtpJ/view?usp=drive_link">English form</a></li>
+      <li lang="en">Reference check, <a href="https://drive.google.com/file/d/1tgpZ5gqJmtGsqpC6iGbT-Ljkvb2mbtpJ/view?usp=drive_link">English form</a></li>
+      <li lang="ja">リファレンスチェック <a href="https://drive.google.com/file/d/1tgpZ5gqJmtGsqpC6iGbT-Ljkvb2mbtpJ/view?usp=drive_link">英語フォーム</a></li>
     </ul>
   </section>
 
   <section id="step4">
     <div class="stephead">
       <div class="numsq" aria-hidden="true">4</div>
-      <h2>Offer acceptance and resignation</h2>
+      <h2><span lang="en">Offer acceptance and resignation</span><span lang="ja">内定承諾と退職手続き</span></h2>
     </div>
 
-    <h3>Questions to ask in the offer meeting</h3>
+    <h3><span lang="en">Questions to ask in the offer meeting</span><span lang="ja">内定面談で確認する質問</span></h3>
     <ul>
-      <li>How is the bonus calculated, and how much of it is company, team and personal performance?</li>
-      <li>Which months is the bonus paid?</li>
-      <li>In year one, do new joiners receive the full bonus or is it prorated to your start date?</li>
-      <li>What is the review cycle, and when would your first salary review fall?</li>
+      <li lang="en">How is the bonus calculated, and how much of it is company, team and personal performance?</li>
+      <li lang="ja">賞与はどのように決まりますか。会社業績、チーム業績、個人評価の割合は。</li>
+      <li lang="en">Which months is the bonus paid?</li>
+      <li lang="ja">賞与の支給月はいつですか。</li>
+      <li lang="en">In year one, do new joiners receive the full bonus or is it prorated to your start date?</li>
+      <li lang="ja">入社1年目は満額支給ですか。それとも入社日に応じた按分ですか。</li>
+      <li lang="en">What is the review cycle, and when would your first salary review fall?</li>
+      <li lang="ja">評価のサイクルと、最初の昇給のタイミングはいつですか。</li>
     </ul>
 
-    <h3>Resignation checklist</h3>
-    <p class="counter" data-counter="resign">0 of 10 done</p>
+    <h3><span lang="en">Resignation checklist</span><span lang="ja">退職チェックリスト</span></h3>
+    <p class="counter" data-counter="resign"></p>
     <div data-group="resign">
-      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label">Sign the offer letter and confirm your start date with the new employer.</span></div>
-      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label">Check your notice period in your employment rules (shugyo kisoku). One month is the common standard in Japan</span></div>
-      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label">Start dates are usually the 1st or 15th of the month, because onboarding runs in batches.</span></div>
-      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label">Decide your last working day and your last day on payroll. These are often different.</span></div>
-      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label">Unused annual leave is generally not paid out, so plan to use it before your final day.</span></div>
-      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label">Prepare a written list of open tasks and responsibilities for handover.</span></div>
-      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label">Book a meeting with your manager to resign in person. If they are away for more than a few days, speak to their manager instead.</span></div>
-      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label">Follow the meeting with a short email so the resignation is on record.</span></div>
-      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label">Prepare your response to a counter offer in advance.</span></div>
-      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label">Expect paper forms by post from Japanese employers before you start.</span></div>
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label"><span lang="en">Sign the offer letter and confirm your start date with the new employer.</span><span lang="ja">内定通知書に署名し、入社日を確定します。</span></span></div>
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label"><span lang="en">Check your notice period in your employment rules (shugyo kisoku). One month is the common standard in Japan</span><span lang="ja">就業規則で退職の申出期間を確認します。日本では1か月前が一般的です。</span></span></div>
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label"><span lang="en">Start dates are usually the 1st or 15th of the month, because onboarding runs in batches.</span><span lang="ja">入社日は月の1日または15日が一般的です。入社手続きをまとめて行うためです。</span></span></div>
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label"><span lang="en">Decide your last working day and your last day on payroll. These are often different.</span><span lang="ja">最終出社日と退職日を決めます。この2つは異なることが多いです。</span></span></div>
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label"><span lang="en">Unused annual leave is generally not paid out, so plan to use it before your final day.</span><span lang="ja">残った有給休暇は買い取られないことが多いため、最終日までに消化する計画を立ててください。</span></span></div>
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label"><span lang="en">Prepare a written list of open tasks and responsibilities for handover.</span><span lang="ja">引き継ぎのため、進行中の業務と担当範囲を書き出します。</span></span></div>
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label"><span lang="en">Book a meeting with your manager to resign in person. If they are away for more than a few days, speak to their manager instead.</span><span lang="ja">上司に直接会って退職の意思を伝えます。数日以上不在の場合は、その上の上司に伝えてください。</span></span></div>
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label"><span lang="en">Follow the meeting with a short email so the resignation is on record.</span><span lang="ja">面談の後に短いメールを送り、記録に残します。</span></span></div>
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label"><span lang="en">Prepare your response to a counter offer in advance.</span><span lang="ja">引き止め（カウンターオファー）への返答を、事前に準備します。</span></span></div>
+      <div class="check" role="checkbox" tabindex="0" aria-checked="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5"/></svg></span><span class="label"><span lang="en">Expect paper forms by post from Japanese employers before you start.</span><span lang="ja">入社前に、紙の書類が郵送で届くことが多いです。</span></span></div>
     </div>
 
     <div class="note">
-      <span class="lbl">ON COUNTER OFFERS</span>
-      <p>A counter offer usually fixes the salary and none of the reasons you started looking. In our experience the large majority of people who accept one are back in the market within six months, having lost the offer they had and some credibility internally.</p>
+      <span class="lbl"><span lang="en">ON COUNTER OFFERS</span><span lang="ja">引き止めについて</span></span>
+      <p lang="en">A counter offer usually fixes the salary and none of the reasons you started looking. In our experience the large majority of people who accept one are back in the market within six months, having lost the offer they had and some credibility internally.</p>
+      <p lang="ja">引き止めで年収は上がっても、転職を考えた理由そのものは解決しないことがほとんどです。私の経験では、引き止めを受け入れた方の多くが半年以内に再び転職活動を始めています。そのときには、得ていた内定も社内での信頼も失っています。</p>
     </div>
   </section>
 
   <section id="work">
-    <h2>How we work together</h2>
-    <p>I can deliver the above because I work with a maximum of ten candidates at a time. Two things make the process work:</p>
+    <h2><span lang="en">How we work together</span><span lang="ja">一緒に進めるために</span></h2>
+    <p lang="en">I can deliver the above because I work with a maximum of ten candidates at a time. Two things make the process work:</p>
+    <p lang="ja">同時にお手伝いするのは最大10名までです。だからこそ、ここまでの内容をお約束できます。うまく進めるために、2点お願いがあります。</p>
     <ul>
-      <li><b>Let me represent you.</b> If you see a role elsewhere, through another agent or directly, come to me first. Companies typically hold a 12 month ownership period on any application, so once your CV is in through another route I cannot help you there. You may also never reach interview, because most agents do not have the hiring manager relationship to follow up on your behalf.</li>
-      <li><b>Reply quickly on scheduling.</b> Interview slots for senior security leaders move fast</li>
+      <li lang="en"><b>Let me represent you.</b> If you see a role elsewhere, through another agent or directly, come to me first. Companies typically hold a 12 month ownership period on any application, so once your CV is in through another route I cannot help you there. You may also never reach interview, because most agents do not have the hiring manager relationship to follow up on your behalf.</li>
+      <li lang="ja"><b>窓口は私に任せてください。</b>他のエージェントや直接応募で求人を見つけた場合も、まず私にご連絡ください。多くの企業は応募情報を12か月間保持するため、他の経路で書類が提出されると、その企業ではお手伝いできなくなります。また、採用責任者との関係がないエージェントも多く、面接まで進まないこともあります。</li>
+      <li lang="en"><b>Reply quickly on scheduling.</b> Interview slots for senior security leaders move fast</li>
+      <li lang="ja"><b>日程調整は早めにご返信ください。</b>シニアクラスの面接枠はすぐに埋まります。</li>
     </ul>
 
-    <h3>Compliance registration</h3>
-    <p>A colleague will send you a two minute DocuSign form asking for your name, mobile, email and signature. This is the compliance document that lets me send your CV to clients with your permission.</p>
+    <h3><span lang="en">Compliance registration</span><span lang="ja">コンプライアンス登録</span></h3>
+    <p lang="en">A colleague will send you a two minute DocuSign form asking for your name, mobile, email and signature. This is the compliance document that lets me send your CV to clients with your permission.</p>
+    <p lang="ja">担当者から、2分ほどで完了するDocuSignのフォームをお送りします。氏名、携帯番号、メールアドレス、署名をご記入ください。ご本人の同意のもとで書類を企業に送るために必要な書類です。</p>
   </section>
 
   <section id="resources">
-    <h2>Bonus resources</h2>
+    <h2><span lang="en">Bonus resources</span><span lang="ja">参考資料</span></h2>
     <ul>
-      <li><a href="https://docs.google.com/document/d/1lW2qogWcFlvLgU0xMT-rLmbPhEOtESzZxqIJmQMxtUw/edit?usp=sharing"><b>Building wealth in Japan</b></a>. My tips on reducing tax here: property investment, NISA, furusato nozei, permanent residency application, dependent deduction and angel fund investment.</li>
-      <li><a href="https://www.linkedin.com/pulse/mastering-performance-reviews-proven-strategies-career-steven-li-wbhnc/?trackingId=xzpCr68wQ96qz54KkY9V2A%3D%3D"><b>Mastering performance reviews</b></a>: proven strategies for career success.</li>
-      <li><b>2026 Robert Half Japan Salary Guide</b>, technology and IT: <a href="https://www.roberthalf.com/jp/en/insights/salary-guide/technology">roberthalf.com/jp/en/insights/salary-guide/technology</a></li>
+      <li lang="en"><a href="https://cybersteve1650.github.io/"><b>Building wealth in Japan</b></a>. My tips on reducing tax here: property investment, NISA, furusato nozei, permanent residency application, dependent deduction and angel fund investment.</li>
+      <li lang="ja"><a href="https://cybersteve1650.github.io/"><b>日本での資産形成</b></a>。税負担を抑える方法をまとめています。不動産投資、NISA、ふるさと納税、永住権の申請、扶養控除、エンジェル投資など。</li>
+      <li lang="en"><a href="https://www.linkedin.com/pulse/mastering-performance-reviews-proven-strategies-career-steven-li-wbhnc/?trackingId=xzpCr68wQ96qz54KkY9V2A%3D%3D"><b>Mastering performance reviews</b></a>: proven strategies for career success.</li>
+      <li lang="ja"><a href="https://www.linkedin.com/pulse/mastering-performance-reviews-proven-strategies-career-steven-li-wbhnc/?trackingId=xzpCr68wQ96qz54KkY9V2A%3D%3D"><b>人事評価を味方につける</b></a>：キャリアを伸ばすための方法。</li>
+      <li lang="en"><b>2026 Robert Half Japan Salary Guide</b>, technology and IT: <a href="https://www.roberthalf.com/jp/en/insights/salary-guide/technology">roberthalf.com/jp/en/insights/salary-guide/technology</a></li>
+      <li lang="ja"><b>2026年 ロバート・ハーフ給与ガイド</b>（テクノロジー・IT）：<a href="https://www.roberthalf.com/jp/en/insights/salary-guide/technology">roberthalf.com/jp/en/insights/salary-guide/technology</a></li>
     </ul>
 
-    <h3>Referrals</h3>
-    <p>I have spent more than 10,000 hours with hiring managers to make this process as smooth as possible for you. If it helps you, forward it to someone who needs it. We offer a 30,000 JPY Amazon gift voucher for a successful new client or candidate referral, payable once the candidate passes three months in the role.</p>
+    <h3><span lang="en">Referrals</span><span lang="ja">ご紹介について</span></h3>
+    <p lang="en">I have spent more than 10,000 hours with hiring managers to make this process as smooth as possible for you. If it helps you, forward it to someone who needs it. We offer a 30,000 JPY Amazon gift voucher for a successful new client or candidate referral, payable once the candidate passes three months in the role.</p>
+    <p lang="ja">採用責任者と1万時間以上向き合い、できるだけスムーズに転職できる形をつくってきました。役に立ったと感じたら、必要な方に転送してください。ご紹介いただいた方の入社後3か月が経過した時点で、3万円分のAmazonギフト券をお贈りします。</p>
   </section>
 
   <section id="about">
-    <h2>About Steven Li</h2>
+    <h2><span lang="en">About Steven Li</span><span lang="ja">スティーブン・リーについて</span></h2>
     <div class="about">
-      <p>Steven is a Director at Robert Half's Tokyo office, leading the cyber security and data recruitment practice.</p>
-      <p>He hosts invitation only senior leadership roundtables with partners including Google, Microsoft and Sony. Before recruitment, he spent his career at two tier one Australian banks as a Market Risk Oversight Manager in financial markets.</p>
-      <p>Come and meet the community at the next Cyber Risk Meetup. Details are posted on LinkedIn: <a href="https://www.cyberriskmeetup.com/tokyo">cyberriskmeetup.com/tokyo</a></p>
-      <p class="contact"><b>Robert Half, Tokyo office</b><br>
-      <a href="tel:+818070422165">+81 70 1422 1650</a><br>
-      <a href="mailto:steven.li@roberthalf.jp">steven.li@roberthalf.jp</a><br>
-      <a href="https://www.linkedin.com/in/cybersteve/">Full bio</a></p>
+      <p lang="en">Steven is a Director at Robert Half's Tokyo office, leading the cyber security and data recruitment practice.</p>
+      <p lang="ja">ロバート・ハーフ東京オフィスのディレクターとして、サイバーセキュリティとデータ領域の人材紹介を担当しています。</p>
+      <p lang="en">He hosts invitation only senior leadership roundtables with partners including Google, Microsoft and Sony. Before recruitment, he spent his career at two tier one Australian banks as a Market Risk Oversight Manager in financial markets.</p>
+      <p lang="ja">Google、Microsoft、ソニーなどのパートナー企業とともに、招待制のシニアリーダー向け円卓会議を主催しています。人材業界の前は、オーストラリアの大手銀行2行で、金融市場部門のマーケットリスク管理マネージャーを務めていました。</p>
+      <p lang="en">Come and meet the community at the next Cyber Risk Meetup. Details are posted on LinkedIn: <a href="https://www.cyberriskmeetup.com/tokyo">cyberriskmeetup.com/tokyo</a></p>
+      <p lang="ja">次回のCyber Risk Meetupでお会いしましょう。詳細はLinkedInに掲載しています：<a href="https://www.cyberriskmeetup.com/tokyo">cyberriskmeetup.com/tokyo</a></p>
+      <p class="contact">
+        <b><span lang="en">Robert Half, Tokyo office</span><span lang="ja">ロバート・ハーフ 東京オフィス</span></b><br>
+        <a href="tel:+818070422165">+81 70 1422 1650</a><br>
+        <a href="mailto:steven.li@roberthalf.jp">steven.li@roberthalf.jp</a><br>
+        <a href="https://www.linkedin.com/in/cybersteve/"><span lang="en">Full bio</span><span lang="ja">詳しいプロフィール</span></a>
+      </p>
     </div>
   </section>
 
 </main>
 
 <footer>
-  <div class="wrap">Robert Half, Tokyo. Last updated July 2026. Your checklist marks are kept on this page only and clear when you close it.</div>
+  <div class="wrap">
+    <span lang="en">Robert Half, Tokyo. Last updated July 2026. Your checklist marks are kept on this page only and clear when you close it.</span>
+    <span lang="ja">ロバート・ハーフ 東京オフィス。最終更新：2026年7月。チェックした内容はこのページ内だけに保存され、閉じると消えます。</span>
+  </div>
 </footer>
 
 <div class="cta">
   <div class="cta-in">
-    <a href="https://line.me/ti/p/VFbxzpEPH-">Add me on LINE to get started</a>
-    <small>Or email steven.li@roberthalf.jp</small>
+    <a href="https://line.me/ti/p/VFbxzpEPH-"><span lang="en">Add me on LINE to get started</span><span lang="ja">LINEで相談をはじめる</span></a>
+    <small><span lang="en">Or email steven.li@roberthalf.jp</span><span lang="ja">またはメールでご連絡ください steven.li@roberthalf.jp</span></small>
   </div>
 </div>
 
 <script>
 (function(){
-  // Tappable checklist items, in-page state only
+  var lang = 'en';
+  var TITLES = {
+    en: '4 step checklist to changing jobs in Japan | Steven Li, Robert Half',
+    ja: 'ストレスなく転職するための4ステップ チェックリスト | スティーブン・リー'
+  };
+
+  /* ---- checklists ---- */
   var groups = {};
   document.querySelectorAll('[data-group]').forEach(function(g){
     var key = g.getAttribute('data-group');
-    var items = g.querySelectorAll('.check');
+    var items = Array.prototype.slice.call(g.querySelectorAll('.check'));
     groups[key] = { items: items, total: items.length };
     items.forEach(function(item){
       function toggle(){
         var on = item.classList.toggle('done');
         item.setAttribute('aria-checked', on ? 'true' : 'false');
-        update(key);
+        updateCounter(key);
       }
       item.addEventListener('click', toggle);
       item.addEventListener('keydown', function(e){
@@ -504,18 +613,40 @@ footer .wrap{max-width:640px;}
     });
   });
 
-  function update(key){
+  function updateCounter(key){
     var g = groups[key];
-    var done = 0;
-    g.items.forEach(function(i){ if(i.classList.contains('done')) done++; });
     var el = document.querySelector('[data-counter="' + key + '"]');
-    if(!el) return;
-    var word = key === 'docs' ? 'ready' : 'done';
-    el.textContent = done + ' of ' + g.total + ' ' + word;
+    if(!g || !el) return;
+    var done = g.items.filter(function(i){ return i.classList.contains('done'); }).length;
+    if(lang === 'ja'){
+      el.textContent = g.total + '件中 ' + done + '件' + (key === 'docs' ? ' 準備完了' : ' 完了');
+    } else {
+      el.textContent = done + ' of ' + g.total + (key === 'docs' ? ' ready' : ' done');
+    }
     el.style.color = (done === g.total) ? '#0B6E76' : '#CC0033';
   }
 
-  // Highlight the current step in the nav
+  /* ---- language toggle ---- */
+  var btn = document.getElementById('langbtn');
+  var labels = btn.querySelectorAll('span');
+
+  function setLang(next){
+    lang = next;
+    document.body.classList.toggle('ja', lang === 'ja');
+    document.documentElement.lang = lang;
+    document.title = TITLES[lang];
+    labels.forEach(function(s){ s.classList.toggle('on', s.getAttribute('data-l') === lang); });
+    Object.keys(groups).forEach(updateCounter);
+  }
+
+  btn.addEventListener('click', function(){ setLang(lang === 'en' ? 'ja' : 'en'); });
+
+  /* Open in Japanese for Japanese browsers, or with ?lang=ja */
+  var param = new URLSearchParams(location.search).get('lang');
+  var prefersJa = (navigator.language || '').toLowerCase().indexOf('ja') === 0;
+  setLang(param === 'ja' || (param !== 'en' && prefersJa) ? 'ja' : 'en');
+
+  /* ---- step nav highlight ---- */
   var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
   var targets = chips.map(function(c){ return document.querySelector(c.getAttribute('href')); });
   var io = new IntersectionObserver(function(entries){
