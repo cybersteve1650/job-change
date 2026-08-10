@@ -200,6 +200,75 @@ body.ja .check .label{line-height:1.7;}
   margin:0 0 12px;
 }
 
+/* ---------- avoid / better blocks ---------- */
+.cmp{
+  border:1px solid var(--concrete);border-radius:12px;
+  padding:16px 18px;margin:0 0 14px;
+}
+.cmp h4{
+  font-size:15px;font-weight:700;margin:0 0 10px;
+}
+.cmp-lbl{
+  font-size:11px;font-weight:700;letter-spacing:.13em;
+  margin:14px 0 8px;
+}
+.cmp-lbl:first-of-type{margin-top:0;}
+.cmp-lbl.bad{color:#8B959B;}
+.cmp-lbl.good{color:var(--red);}
+.cmp ul{margin:0;}
+.cmp ul li{margin-bottom:8px;font-size:15px;}
+.cmp ul.bad li::before{background:#C3CBD0;}
+.skills{
+  font-size:14px;line-height:1.9;margin:0 0 4px;
+}
+.skills b{color:var(--midnight);}
+
+/* ---------- collapsible ---------- */
+.acc{
+  border:1px solid var(--concrete);border-radius:12px;
+  margin:0 0 10px;overflow:hidden;
+}
+.acc summary{
+  list-style:none;cursor:pointer;
+  padding:14px 44px 14px 16px;
+  font-size:15px;font-weight:700;
+  position:relative;
+  background:var(--white);
+}
+.acc summary::-webkit-details-marker{display:none;}
+.acc summary::after{
+  content:"";position:absolute;right:18px;top:50%;
+  width:9px;height:9px;margin-top:-6px;
+  border-right:2px solid var(--red);
+  border-bottom:2px solid var(--red);
+  transform:rotate(45deg);
+  transition:transform .2s;
+}
+.acc[open] summary{background:var(--sandstone);}
+.acc[open] summary::after{transform:rotate(-135deg);margin-top:-2px;}
+.acc .body{padding:16px;}
+.acc .body > *:last-child{margin-bottom:0;}
+.acc .body h4{
+  font-size:14px;font-weight:700;margin:18px 0 8px;
+}
+.acc .body h4:first-child{margin-top:0;}
+.acc .body p, .acc .body li{font-size:15px;}
+.qa{margin:0 0 14px;}
+.qa .q{font-weight:600;margin:0 0 4px;}
+.qa .a{margin:0;color:#4A555C;font-size:14px;}
+.qa .a b{color:var(--midnight);}
+.eg{
+  border-left:3px solid var(--red);
+  padding:2px 0 2px 14px;margin:8px 0 0;
+  font-size:14px;color:#4A555C;
+}
+
+.legal{
+  font-size:12px;line-height:1.7;color:#7A858C;
+  padding-top:12px;border-top:1px solid var(--concrete);
+}
+.todo{color:var(--red);font-weight:700;}
+
 /* ---------- callout ---------- */
 .note{
   background:var(--sandstone);
@@ -282,8 +351,8 @@ footer .wrap{max-width:640px;}
     <h1><span lang="en">4 step checklist to changing jobs in Japan, <b>stress free</b></span><span lang="ja">ストレスなく転職するための<b>4ステップ チェックリスト</b></span></h1>
     <p class="lede"><span lang="en">I help Japanese speaking cyber security people get more than one job offer.</span><span lang="ja">日本語を話すサイバーセキュリティ人材の方が、複数の内定を得られるようお手伝いします。</span></p>
     <p class="byline"><b>Steven Li</b><br>
-      <span lang="en">Director, APAC | Cyber Security and Data<br>Last updated: July 2026</span>
-      <span lang="ja">ディレクター（APAC）｜サイバーセキュリティ・データ<br>最終更新：2026年7月</span>
+      <span lang="en">Director, APAC | Cyber Security and Data<br>Last updated: August 2026</span>
+      <span lang="ja">ディレクター（APAC）｜サイバーセキュリティ・データ<br>最終更新：2026年8月</span>
     </p>
   </div>
 </header>
@@ -361,20 +430,106 @@ footer .wrap{max-width:640px;}
 
     <h3><span lang="en">Send me your English CV in Word format</span><span lang="ja">英文の職務経歴書をWord形式でお送りください</span></h3>
     <ul>
-      <li lang="en">Article: <a href="https://www.linkedin.com/pulse/three-cv-tips-guaranteed-get-you-more-interviews-steven-li/?trackingId=xzpCr68wQ96qz54KkY9V2A%3D%3D">Three CV tips to land your next cyber security interview</a></li>
-      <li lang="ja">記事：<a href="https://www.linkedin.com/pulse/three-cv-tips-guaranteed-get-you-more-interviews-steven-li/?trackingId=xzpCr68wQ96qz54KkY9V2A%3D%3D">面接につながる職務経歴書の3つのコツ</a></li>
       <li lang="en"><a href="https://docs.google.com/document/d/1v_lmnS79CIPcxEQC8zppYE5-srJ5t5la/edit?usp=drive_link&amp;ouid=100594451565742299685&amp;rtpof=true&amp;sd=true">CV template</a></li>
       <li lang="ja"><a href="https://docs.google.com/document/d/1v_lmnS79CIPcxEQC8zppYE5-srJ5t5la/edit?usp=drive_link&amp;ouid=100594451565742299685&amp;rtpof=true&amp;sd=true">職務経歴書テンプレート</a></li>
-      <li lang="en">Quantify your achievements, not just your responsibilities. Scope, budget, headcount, incident volume, risk reduction.</li>
-      <li lang="ja">業務内容だけでなく、実績を数字で書いてください。担当範囲、予算、人数、対応件数、リスク削減など。</li>
     </ul>
+
+    <h3><span lang="en">What makes a strong CV</span><span lang="ja">通る職務経歴書のポイント</span></h3>
+    <p lang="en">These tips come from reading more than 1,000 CVs. Your CV has one job: to get you an interview. The reader must understand the size of your work without ever meeting you. At some companies, HR also decides your salary from interview feedback alone, so size matters.</p>
+    <p lang="ja">1,000通以上の職務経歴書を見てきた経験からのポイントです。書類の目的はひとつ、面接に進むことです。読み手が、あなたに会わなくても仕事の規模を理解できることが大切です。企業によっては、面接のフィードバックだけで人事が年収を決めることもあります。</p>
+
+    <div class="cmp">
+      <h4><span lang="en">1. Put achievements at the top</span><span lang="ja">1. 実績を最初に書く</span></h4>
+      <p class="cmp-lbl bad"><span lang="en">AVOID</span><span lang="ja">避けたい書き方</span></p>
+      <ul class="bad">
+        <li lang="en">Copying the job description. The manager already knows the role.</li>
+        <li lang="ja">求人票の内容をそのまま書く。担当者は仕事の内容をすでに知っています。</li>
+        <li lang="en">"Responsible for security operations." No number, no result.</li>
+        <li lang="ja">「セキュリティ運用を担当」。数字も結果もありません。</li>
+      </ul>
+      <p class="cmp-lbl good"><span lang="en">BETTER</span><span lang="ja">良い書き方</span></p>
+      <ul>
+        <li lang="en">Consolidated security operations vendors from seven to two, saving 300m JPY a year and bringing back visibility.</li>
+        <li lang="ja">セキュリティ運用のベンダーを7社から2社に集約し、年間3億円を削減。可視性も回復。</li>
+        <li lang="en">Led MFA rollout across the company, reducing unauthorised access risk by 75%.</li>
+        <li lang="ja">全社にMFAを導入し、不正アクセスのリスクを75%削減。</li>
+        <li lang="en">Automated monthly regulatory reporting with Python, saving 10 hours a month.</li>
+        <li lang="ja">Pythonで月次の規制報告を自動化し、月10時間を削減。</li>
+        <li lang="en">Replaced an Excel process with a security ticketing system, cutting manual work by 20%.</li>
+        <li lang="ja">Excelでの運用をセキュリティのチケットシステムに置き換え、手作業を20%削減。</li>
+        <li lang="en">Bug bounty award of 10,000 USD. CVE published.</li>
+        <li lang="ja">バグバウンティで1万米ドルを獲得。CVEを公開。</li>
+      </ul>
+    </div>
+
+    <div class="cmp">
+      <h4><span lang="en">2. Group your technical skills</span><span lang="ja">2. 技術スキルはまとめて書く</span></h4>
+      <p class="cmp-lbl bad"><span lang="en">AVOID</span><span lang="ja">避けたい書き方</span></p>
+      <ul class="bad">
+        <li lang="en">Adding every security keyword to pass a machine screen. In Japan there are about 1.5 applications per job ad, so a person reads your CV, not software.</li>
+        <li lang="ja">機械の選考を通すために、セキュリティ用語をすべて詰め込む。日本では1求人あたりの応募は約1.5件で、書類を読むのは機械ではなく人です。</li>
+      </ul>
+      <p class="cmp-lbl good"><span lang="en">BETTER</span><span lang="ja">良い書き方</span></p>
+      <p class="skills" lang="en">
+        <b>Software:</b> C, Python, Java, Go, Ruby, PHP<br>
+        <b>Network:</b> Palo Alto, Juniper, LAN, WAN, VMware<br>
+        <b>Security:</b> Burp Suite, Metasploit, Nessus<br>
+        <b>Cloud:</b> AWS, Azure, GCP<br>
+        <b>SIEM:</b> CrowdStrike, Splunk<br>
+        <b>Compliance:</b> ISO 27001, NIST, GDPR, PCI DSS, OWASP Top 10
+      </p>
+      <p class="skills" lang="ja">
+        <b>ソフトウェア：</b>C、Python、Java、Go、Ruby、PHP<br>
+        <b>ネットワーク：</b>Palo Alto、Juniper、LAN、WAN、VMware<br>
+        <b>セキュリティ：</b>Burp Suite、Metasploit、Nessus<br>
+        <b>クラウド：</b>AWS、Azure、GCP<br>
+        <b>SIEM：</b>CrowdStrike、Splunk<br>
+        <b>コンプライアンス：</b>ISO 27001、NIST、GDPR、PCI DSS、OWASP Top 10
+      </p>
+      <p lang="en" style="margin:10px 0 0;font-size:14px;">You can still name the main tools inside each role. Grouping just makes them easy to find.</p>
+      <p lang="ja" style="margin:10px 0 0;font-size:14px;">各職歴の中でも主な使用ツールに触れて構いません。まとめて書くと、読み手がすぐに把握できます。</p>
+    </div>
+
+    <div class="cmp">
+      <h4><span lang="en">3. Put numbers on your responsibilities</span><span lang="ja">3. 担当範囲に数字を入れる</span></h4>
+      <p class="cmp-lbl bad"><span lang="en">AVOID</span><span lang="ja">避けたい書き方</span></p>
+      <ul class="bad">
+        <li lang="en">"Managed a security team." The reader cannot tell if that is 3 people or 30.</li>
+        <li lang="ja">「セキュリティチームを管理」。3人なのか30人なのか、読み手には分かりません。</li>
+      </ul>
+      <p class="cmp-lbl good"><span lang="en">BETTER</span><span lang="ja">良い書き方</span></p>
+      <ul>
+        <li lang="en">Managed 15 engineers across product security and corporate security.</li>
+        <li lang="ja">プロダクトセキュリティとコーポレートセキュリティで、エンジニア15名を管理。</li>
+        <li lang="en">Ran security awareness training for 2,000 users.</li>
+        <li lang="ja">全社2,000名を対象にセキュリティ教育を実施。</li>
+        <li lang="en">SAST and DAST review for over 70 web applications.</li>
+        <li lang="ja">70以上のWebアプリケーションでSASTとDASTのレビューを担当。</li>
+        <li lang="en">Ran 25 web application penetration tests a year for banking, insurance and healthcare clients.</li>
+        <li lang="ja">金融、保険、医療の顧客に対し、年間25件のWebアプリケーション診断を実施。</li>
+        <li lang="en">Migrated 200TB of unstructured data to the cloud with limited downtime.</li>
+        <li lang="ja">200TBの非構造化データを、停止時間を抑えてクラウドへ移行。</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <span class="lbl"><span lang="en">CHECK YOUR CV</span><span lang="ja">書類のチェック</span></span>
+      <ul style="margin:0;">
+        <li lang="en">Are you getting called to interviews?</li>
+        <li lang="ja">面接に呼ばれていますか。</li>
+        <li lang="en">Can the reader tell the size of your work without meeting you?</li>
+        <li lang="ja">読み手は、あなたに会わずに仕事の規模を理解できますか。</li>
+      </ul>
+      <p lang="en" style="margin:12px 0 0;">If you work with me only, CV review and coaching are included at no cost.</p>
+      <p lang="ja" style="margin:12px 0 0;">私に窓口をお任せいただく場合、書類の添削と面接対策は無料で行います。</p>
+    </div>
 
     <h3><span lang="en">Send your Japanese CV and rirekisho if you have them</span><span lang="ja">日本語の職務経歴書と履歴書もあればお送りください</span></h3>
     <ul>
       <li lang="en">More Japanese companies now require both at application stage</li>
       <li lang="ja">応募の段階で両方を求める企業が増えています</li>
-      <li lang="en">No photo needed.</li>
-      <li lang="ja">写真は不要です。</li>
+      <li lang="en">No photo needed for the roles I handle.</li>
+      <li lang="ja">私が担当する求人では、写真は不要です。</li>
       <li lang="en"><a href="https://www.daijob.com/en/guide/tipsadvice/resume/rirekisyo/">Rirekisho template</a></li>
       <li lang="ja"><a href="https://www.daijob.com/en/guide/tipsadvice/resume/rirekisyo/">履歴書テンプレート</a></li>
       <li lang="en">Once you have created 1 CV, you can use AI to create the other documents</li>
@@ -388,20 +543,319 @@ footer .wrap{max-width:640px;}
       <h2><span lang="en">Interview preparation</span><span lang="ja">面接の準備</span></h2>
     </div>
 
-    <p lang="en">Article: <a href="https://www.linkedin.com/pulse/essential-japan-cyber-security-interview-guide-steven-li-z0ywc/?trackingId=xzpCr68wQ96qz54KkY9V2A%3D%3D">The essential Japan cyber security interview guide</a></p>
-    <p lang="ja">記事：<a href="https://www.linkedin.com/pulse/essential-japan-cyber-security-interview-guide-steven-li-z0ywc/?trackingId=xzpCr68wQ96qz54KkY9V2A%3D%3D">日本のサイバーセキュリティ面接ガイド</a></p>
+    <p lang="en">This comes from helping over 130 cyber security professionals find a role in Japan, and more than 1,000 hours of conversations with hiring managers. Tap a section to open it.</p>
+    <p lang="ja">130名以上のサイバーセキュリティ人材の転職支援と、採用責任者との1,000時間以上の対話をもとにまとめました。項目をタップすると開きます。</p>
 
-    <h3><span lang="en">Spend 20 minutes on the investor relations report</span><span lang="ja">決算資料（IR資料）を20分読んでください</span></h3>
-    <p lang="en">This is the highest return preparation you can do. Focus on:</p>
-    <p lang="ja">最も効果の高い準備です。次の点を見てください。</p>
-    <ul>
-      <li lang="en">How revenue is segmented, by product, service or geography.</li>
-      <li lang="ja">売上の内訳。製品別、サービス別、地域別。</li>
-      <li lang="en">Key technology investments, particularly anything AI, cloud or data related.</li>
-      <li lang="ja">重点的な技術投資。特にAI、クラウド、データ関連。</li>
-      <li lang="en">The forward outlook and stated risks. Security sits directly underneath this.</li>
-      <li lang="ja">今後の見通しと、記載されているリスク。セキュリティはここに直接つながります。</li>
-    </ul>
+    <details class="acc">
+      <summary><span lang="en">Before the interview</span><span lang="ja">面接の前に</span></summary>
+      <div class="body">
+        <h4><span lang="en">Read the investor relations presentation</span><span lang="ja">決算説明資料（IR資料）を読む</span></h4>
+        <p lang="en">This is the biggest missed chance in interview preparation. Twenty minutes is enough. Use the Q4 presentation, it is usually the most detailed. This is not the same as the financial report.</p>
+        <p lang="ja">面接準備で最も見落とされている点です。20分で十分です。第4四半期の資料が最も詳しいのでおすすめです。決算短信とは別の資料です。</p>
+        <p lang="en">Look for:</p>
+        <p lang="ja">見るポイント：</p>
+        <ul>
+          <li lang="en">How the company makes money, by product, service or region. This tells you what you are being hired to protect.</li>
+          <li lang="ja">どの製品、サービス、地域で収益を上げているか。あなたが守るべき対象がわかります。</li>
+          <li lang="en">Technology investment, especially AI, cloud and data.</li>
+          <li lang="ja">技術投資。特にAI、クラウド、データ関連。</li>
+          <li lang="en">Growth plans, mergers and digital transformation.</li>
+          <li lang="ja">成長戦略、統合や買収、デジタル化の計画。</li>
+          <li lang="en">Cyber and operational risk, and the outlook for the year.</li>
+          <li lang="ja">サイバーリスクと業務リスク、今年の見通し。</li>
+        </ul>
+
+        <h4><span lang="en">News articles are not enough</span><span lang="ja">ニュース記事だけでは足りない</span></h4>
+        <ul>
+          <li lang="en">Good for recent events: new executives, incidents, fines, mergers.</li>
+          <li lang="ja">直近の出来事には有効です。役員交代、インシデント、制裁金、買収など。</li>
+          <li lang="en">Weak for strategy. News looks backwards and misses long term plans and technology investment.</li>
+          <li lang="ja">戦略の把握には不向きです。過去の出来事が中心で、長期の計画や技術投資は見えません。</li>
+        </ul>
+
+        <h4><span lang="en">Research the interviewers</span><span lang="ja">面接官を調べる</span></h4>
+        <ul>
+          <li lang="en">People ask questions from their own strengths. A department manager asks fewer technical questions. An engineer with no management duties will ask about the tech stack they know well.</li>
+          <li lang="ja">面接官は自分の得意分野から質問します。部門長は技術的な質問が少なく、管理職でないエンジニアは自分が詳しい技術について聞いてきます。</li>
+          <li lang="en">Senior executives often have talks or interviews online. Watch one. Matching their tone and pace builds trust quickly.</li>
+          <li lang="ja">経営層は講演や取材の動画が公開されていることが多いです。一つ見ておきましょう。話し方やペースを合わせると、信頼を得やすくなります。</li>
+          <li lang="en">Do you know anyone inside the company who can explain the team?</li>
+          <li lang="ja">社内に知人はいませんか。チームの状況を聞けると有利です。</li>
+        </ul>
+
+        <h4><span lang="en">Understand what kind of role it is</span><span lang="ja">どのような役割かを理解する</span></h4>
+        <p lang="en">Your goal is to understand the team's main problem and show that you are the solution. For a CISO or head of security role, ask which of these three it is, then choose examples that match.</p>
+        <p lang="ja">チームが抱える課題を理解し、その解決策として自分を位置づけることが目的です。CISOやセキュリティ責任者の求人では、次のどれに当たるかを確認し、それに合った事例を話してください。</p>
+        <ul>
+          <li lang="en"><b>Start up.</b> Building a team or function from zero. Needs vision, process and hiring.</li>
+          <li lang="ja"><b>立ち上げ。</b>チームや組織をゼロからつくる。方針、体制、採用が必要です。</li>
+          <li lang="en"><b>Turnaround.</b> The team is in trouble. Needs fast assessment and quick action to stabilise it.</li>
+          <li lang="ja"><b>立て直し。</b>組織が問題を抱えている。素早い状況把握と、立て直しの行動が求められます。</li>
+          <li lang="en"><b>Business as usual.</b> Keep daily operations stable, improve processes step by step, meet agreed standards.</li>
+          <li lang="ja"><b>通常運営。</b>日々の運用を安定させ、少しずつ改善し、決められた基準を満たします。</li>
+        </ul>
+        <p class="eg" lang="en">Reference: The First 90 Days, Michael D. Watkins</p>
+        <p class="eg" lang="ja">参考図書：『ハーバード流 リーダーシップ 90日で成果を出すリーダー』マイケル・ワトキンス</p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span lang="en">Common questions</span><span lang="ja">よく聞かれる質問</span></summary>
+      <div class="body">
+        <div class="qa">
+          <p class="q" lang="en">Tell me about yourself.</p>
+          <p class="q" lang="ja">自己紹介をお願いします。</p>
+          <p class="a" lang="en">Career highlights only, under five minutes. One candidate spoke for 20 minutes and was not invited back.</p>
+          <p class="a" lang="ja">経歴の要点だけを5分以内で。20分話した方が二次面接に進めなかった例もあります。</p>
+        </div>
+        <div class="qa">
+          <p class="q" lang="en">Why this company?</p>
+          <p class="q" lang="ja">なぜ当社ですか。</p>
+          <p class="a" lang="en">They are testing whether you did your research.</p>
+          <p class="a" lang="ja">企業研究をしているかを見ています。</p>
+        </div>
+        <div class="qa">
+          <p class="q" lang="en">Why this role?</p>
+          <p class="q" lang="ja">なぜこのポジションですか。</p>
+          <p class="a" lang="en">They are testing whether you understand the challenge of the job.</p>
+          <p class="a" lang="ja">その仕事の課題を理解しているかを見ています。</p>
+        </div>
+        <div class="qa">
+          <p class="q" lang="en">Why you?</p>
+          <p class="q" lang="ja">なぜあなたなのですか。</p>
+          <p class="a" lang="en">Connect your strengths and motivation to the problem the team needs to solve.</p>
+          <p class="a" lang="ja">自分の強みと意欲を、チームが解決したい課題に結びつけて話します。</p>
+        </div>
+        <div class="qa">
+          <p class="q" lang="en">What are your career goals?</p>
+          <p class="q" lang="ja">中長期のキャリア目標は何ですか。</p>
+          <p class="a" lang="en">Link your goals to your strengths. Saying where you want support shows self awareness.</p>
+          <p class="a" lang="ja">目標と強みを結びつけます。どこで支援が必要かを自分から言えると評価されます。</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span lang="en">Security questions, and what they really test</span><span lang="ja">セキュリティの質問と、その意図</span></summary>
+      <div class="body">
+        <div class="qa">
+          <p class="q" lang="en">Explain a security concept to an executive, then to an engineer.</p>
+          <p class="q" lang="ja">セキュリティの概念を、経営層とエンジニアそれぞれに説明してください。</p>
+          <p class="a" lang="en">Can you speak to non technical people in words they understand.</p>
+          <p class="a" lang="ja">技術者でない相手に、わかる言葉で説明できるかを見ています。</p>
+        </div>
+        <div class="qa">
+          <p class="q" lang="en">Who do you admire in the security field?</p>
+          <p class="q" lang="ja">セキュリティ分野で尊敬する人は誰ですか。</p>
+          <p class="a" lang="en">Your reason matters more than the name. We tend to choose the kind of person we want to become.</p>
+          <p class="a" lang="ja">名前より理由が重要です。人は自分がなりたい姿の人を選ぶ傾向があります。</p>
+        </div>
+        <div class="qa">
+          <p class="q" lang="en">If you joined here, how would you find the security baseline?</p>
+          <p class="q" lang="ja">入社したら、どのようにセキュリティの現状を把握しますか。</p>
+          <p class="a" lang="en">Benchmark against ISO 27001 and NIST. Review current policies and standards. Check training completion and phishing test results.</p>
+          <p class="a" lang="ja">ISO 27001やNISTと比較する。既存の規程や基準を確認する。研修の受講率やフィッシング訓練の結果を見る。</p>
+        </div>
+        <div class="qa">
+          <p class="q" lang="en">How do you get the business to support the security agenda?</p>
+          <p class="q" lang="ja">どのように事業部門を巻き込みますか。</p>
+          <p class="a" lang="en">Do you build relationships with key people and put security targets into their annual goals, which affects their bonus. Are those targets easy to understand and achieve.</p>
+          <p class="a" lang="ja">関係者と信頼をつくり、セキュリティの目標を年間評価（賞与に影響）に組み込めるか。その目標がわかりやすく達成可能かも見られます。</p>
+        </div>
+        <div class="qa">
+          <p class="q" lang="en">Global wants a standard that does not fit Japan, and the local team disagrees. What do you do?</p>
+          <p class="q" lang="ja">本社の基準が日本に合わず、日本のチームが反対しています。どうしますか。</p>
+          <p class="a" lang="en">Do you only enforce global policy, or can you judge what fits the Japan market and push back with logic, data and evidence.</p>
+          <p class="a" lang="ja">本社の方針をそのまま適用するだけか、日本市場に合うかを判断し、論理とデータで交渉できるかを見ています。</p>
+        </div>
+        <div class="qa">
+          <p class="q" lang="en">How do you report the state of security to the CEO?</p>
+          <p class="q" lang="ja">経営トップにセキュリティの状況をどう報告しますか。</p>
+          <p class="a" lang="en">Storytelling. Can you turn cyber risk into business risk, with numbers and the cost of doing nothing.</p>
+          <p class="a" lang="ja">伝え方が問われます。サイバーリスクを事業リスクに置き換え、数字と、対応しない場合の損失で示せるか。</p>
+        </div>
+        <div class="qa">
+          <p class="q" lang="en">Have you set security strategy yourself, or only carried out what global asked for?</p>
+          <p class="q" lang="ja">セキュリティ戦略を自ら立てた経験はありますか。それとも本社の指示を実行してきましたか。</p>
+          <p class="a" lang="en">Common at Japanese headquartered companies. Bilingual professionals often come from international firms with less strategy exposure, so prepare stories that show you can do it.</p>
+          <p class="a" lang="ja">日本本社の企業でよく聞かれます。バイリンガル人材は外資での経験が多く、戦略立案の経験が少ないと見られがちです。それを示せる事例を用意してください。</p>
+        </div>
+        <div class="qa">
+          <p class="q" lang="en">Tell me about a complex project you are proud of.</p>
+          <p class="q" lang="ja">誇りに思う難しいプロジェクトを教えてください。</p>
+          <p class="a eg" lang="en">Example: I led a project to share our threat detection analysis with the fraud team. The problem was that data sources were not standardised, so correlation was poor. I worked with IT to clean the data and set new output requirements. We now prevent 500m JPY of fraud a year.</p>
+          <p class="a eg" lang="ja">例：脅威検知の分析結果を不正対策チームと共有するプロジェクトを主導しました。課題はデータ形式が統一されておらず、相関分析の精度が低いことでした。IT部門と協力してデータを整理し、出力の要件を新たに定めました。現在は年間5億円の不正被害を防いでいます。</p>
+        </div>
+        <div class="qa">
+          <p class="q" lang="en">How do you drive security awareness?</p>
+          <p class="q" lang="ja">社内のセキュリティ意識をどう高めますか。</p>
+          <p class="a eg" lang="en">Example: Training completion was only 25%, because the material was English only and not relevant to our industry. I created short manga style guides in Japanese that take three minutes to read. Completion reached 97% after six months.</p>
+          <p class="a eg" lang="ja">例：研修の受講率は25%でした。教材が英語のみで、業界に合っていなかったためです。3分で読める日本語のマンガ形式の教材を作成し、半年後に受講率は97%になりました。</p>
+        </div>
+        <div class="qa">
+          <p class="q" lang="en">What does your home lab look like?</p>
+          <p class="q" lang="ja">自宅の検証環境はどのような構成ですか。</p>
+          <p class="a" lang="en">Deeply technical people can describe theirs in detail. If you have one, be ready to walk through it.</p>
+          <p class="a" lang="ja">技術に強い人は詳しく説明できます。持っている方は、構成を説明できるようにしておきましょう。</p>
+        </div>
+        <div class="qa">
+          <p class="q" lang="en">For sales roles: your numbers for the last five years.</p>
+          <p class="q" lang="ja">営業職の場合：過去5年の実績。</p>
+          <p class="a" lang="en">Know them against target: direct sales against partner sales, Japan against overseas, average deal size, sales cycle length, and how you achieved them.</p>
+          <p class="a" lang="ja">目標に対する実績を把握しておきます。直販とパートナー経由、国内と海外、平均案件規模、商談期間、そして達成の方法。</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span lang="en">Technical questions to expect</span><span lang="ja">想定される技術質問</span></summary>
+      <div class="body">
+        <ul>
+          <li lang="en">Explain ISO 27001, NIST and the OWASP Top 10.</li>
+          <li lang="ja">ISO 27001、NIST、OWASP Top 10について説明してください。</li>
+          <li lang="en">Explain SQL injection.</li>
+          <li lang="ja">SQLインジェクションとは何ですか。</li>
+          <li lang="en">How would you secure APIs?</li>
+          <li lang="ja">APIをどのように保護しますか。</li>
+          <li lang="en">What is the difference between symmetric and asymmetric cryptography?</li>
+          <li lang="ja">共通鍵暗号と公開鍵暗号の違いは何ですか。</li>
+          <li lang="en">How do you work with developers on secure coding without slowing down CI/CD?</li>
+          <li lang="ja">CI/CDを遅らせずに、開発者とセキュアコーディングをどう進めますか。</li>
+          <li lang="en">What is the CIA triad?</li>
+          <li lang="ja">CIAの3要素とは何ですか。</li>
+          <li lang="en">If you hold customer data, how would you rank it by confidentiality?</li>
+          <li lang="ja">顧客データを保有する場合、機密性をどう分類しますか。</li>
+        </ul>
+        <p class="eg" lang="en">In a design question, show your thinking, not just the answer. Treat it like maths homework: show the steps.</p>
+        <p class="eg" lang="ja">設計に関する質問では、答えだけでなく考え方を説明してください。数学の解答と同じで、過程を見せることが大切です。</p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span lang="en">Interviewing with a consumer tech company</span><span lang="ja">消費者向けアプリを持つ企業の面接</span></summary>
+      <div class="body">
+        <p lang="en">Companies like Mercari and Paidy expect you to know their product. Not using the app before the interview is the fastest way to look uninterested.</p>
+        <p lang="ja">メルカリやPaidyのような企業では、自社サービスを知っていることが前提です。アプリを使わずに面接に臨むと、関心が低いと受け取られます。</p>
+
+        <h4><span lang="en">Use the app first</span><span lang="ja">まずアプリを使う</span></h4>
+        <ul>
+          <li lang="en">Sign up and complete one real action. Buy or sell an item. Make one payment. A finished transaction gives you something specific to talk about.</li>
+          <li lang="ja">登録して、実際に一度使ってみてください。商品を買う、出品する、支払いを一度行う。実際の体験があると、具体的に話せます。</li>
+          <li lang="en">Watch the security touch points as a user: sign up, login, MFA options, identity check, payment, password reset, permissions the app asks for.</li>
+          <li lang="ja">利用者としてセキュリティに関わる部分を見ます。登録、ログイン、多要素認証、本人確認、決済、パスワード再設定、アプリが求める権限。</li>
+          <li lang="en">Have one honest observation ready, said with respect. "I noticed the login flow allows X. In my last role we handled that by Y." This shows interest, not criticism.</li>
+          <li lang="ja">気づいた点を一つ、敬意をもって伝えられるようにします。「ログインの流れでこうなっていました。前職では、このように対応していました」。批判ではなく関心を示す形にします。</li>
+          <li lang="en">Read their engineering blog and any public security or trust page. Many Japanese tech companies publish more than people expect.</li>
+          <li lang="ja">技術ブログや、公開しているセキュリティ関連のページを読んでおきます。日本のテック企業は想像以上に情報を公開しています。</li>
+          <li lang="en">Check whether they run a bug bounty or vulnerability disclosure programme. It tells you how mature the security team is, and it is a good question to ask.</li>
+          <li lang="ja">バグバウンティや脆弱性開示制度があるか確認します。セキュリティ組織の成熟度がわかり、面接での質問にもなります。</li>
+        </ul>
+        <p class="eg" lang="en">Important: use the app as a normal user only. Do not scan, test or probe a company's production service before you work there, even to impress them. Every hiring manager I know treats this as a serious red flag, and it can end the process immediately.</p>
+        <p class="eg" lang="ja">重要：一般の利用者として使うだけにしてください。入社前に、企業の本番サービスに対してスキャンや検証を行ってはいけません。良い印象を与えるつもりでも、採用責任者はこれを重大な問題と受け取り、その場で選考が終わることがあります。</p>
+
+        <h4><span lang="en">Be ready to talk about side projects</span><span lang="ja">個人の活動について話せるようにする</span></h4>
+        <p lang="en">Product companies hire for curiosity. Side work is often the clearest evidence of it.</p>
+        <p lang="ja">プロダクト企業は、探究心を重視します。個人の活動は、それを示す最もわかりやすい材料です。</p>
+        <ul>
+          <li lang="en">GitHub, open source contributions, CTF results, a home lab, published CVEs, bug bounty findings, conference talks, a blog, a study group you run.</li>
+          <li lang="ja">GitHub、OSSへの貢献、CTFの成績、自宅の検証環境、公開したCVE、バグバウンティの実績、登壇、ブログ、主催している勉強会など。</li>
+          <li lang="en">For each one, be able to say what problem you were solving, what you chose to build, and what you learned. The reasoning matters more than the tool.</li>
+          <li lang="ja">それぞれについて、何の課題を解こうとしたか、なぜその方法にしたか、何を学んだかを説明できるようにします。使った技術より、考え方が重要です。</li>
+          <li lang="en">Tidy your public profiles before you apply. Assume the interviewer will open your GitHub.</li>
+          <li lang="ja">応募前に公開プロフィールを整理してください。面接官はGitHubを見ると考えてください。</li>
+          <li lang="en">If you have no side projects, say so plainly and talk instead about what you read, follow or test at work. Do not invent one.</li>
+          <li lang="ja">個人の活動がない場合は、正直に伝え、業務で調べていることや試していることを話してください。作り話は避けてください。</li>
+        </ul>
+
+        <h4><span lang="en">Show that security can move at product speed</span><span lang="ja">スピードを止めないセキュリティ</span></h4>
+        <ul>
+          <li lang="en">These companies release often. They want a security person who enables a release, not one who blocks it. Bring an example of how you reduced risk without slowing a team down.</li>
+          <li lang="ja">これらの企業は頻繁にリリースします。開発を止めるのではなく、進められるセキュリティ担当を求めています。開発の速度を落とさずにリスクを下げた例を用意してください。</li>
+          <li lang="en">Expect questions about the balance between user experience and security. Fraud, account takeover, identity checks and payments are where that tension is real for them.</li>
+          <li lang="ja">利便性とセキュリティの両立について聞かれます。不正利用、アカウント乗っ取り、本人確認、決済が、実際に難しい部分です。</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span lang="en">Good questions you can ask</span><span lang="ja">こちらから聞くとよい質問</span></summary>
+      <div class="body">
+        <div class="qa">
+          <p class="q" lang="en">What do you need to deliver in the next one to three years?</p>
+          <p class="q" lang="ja">今後1年から3年で、何を実現する必要がありますか。</p>
+          <p class="a" lang="en">Follow up with: what is missing in the team to deliver that now?</p>
+          <p class="a" lang="ja">続けて聞きます。今、そのために足りていないものは何ですか。</p>
+        </div>
+        <div class="qa">
+          <p class="q" lang="en">How do you give feedback and evaluate performance?</p>
+          <p class="q" lang="ja">フィードバックや評価はどのように行っていますか。</p>
+          <p class="a" lang="en">You cannot learn a manager's style from the job description.</p>
+          <p class="a" lang="ja">上司のマネジメントの仕方は、求人票からはわかりません。</p>
+        </div>
+        <div class="qa">
+          <p class="q" lang="en">What training and development does the company support?</p>
+          <p class="q" lang="ja">研修や自己啓発の支援はありますか。</p>
+          <p class="a" lang="en">Certifications, conferences, a formal mentor programme?</p>
+          <p class="a" lang="ja">資格の費用負担、カンファレンス参加、メンター制度など。</p>
+        </div>
+        <div class="qa">
+          <p class="q" lang="en">What did you like about the person who had this role before, and what could be better?</p>
+          <p class="q" lang="ja">前任者の良かった点と、改善してほしい点は何ですか。</p>
+          <p class="a" lang="en">If someone held the role before, you are being compared to them.</p>
+          <p class="a" lang="ja">前任者がいる場合、あなたはその人と比較されています。</p>
+        </div>
+        <div class="qa">
+          <p class="q" lang="en">What do you think is the biggest challenge for someone like me in this role?</p>
+          <p class="q" lang="ja">私のような経歴の人にとって、この役割で最も難しい点は何だと思いますか。</p>
+          <p class="a" lang="en">Ask this at the end. Their concern comes out, and you can answer it with a story about a similar situation you handled.</p>
+          <p class="a" lang="ja">最後に聞きます。相手の懸念が見えるので、その場で似た経験を話して解消できます。</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span lang="en">Mistakes to avoid</span><span lang="ja">避けたい失敗</span></summary>
+      <div class="body">
+        <ul>
+          <li lang="en">Saying "we did this" instead of "I did this". Foreign interviewers want to know your own part.</li>
+          <li lang="ja">「私たちがやりました」ではなく「私がやりました」と話す。外国人の面接官はあなた自身の貢献を知りたがります。</li>
+          <li lang="en">Answering without a specific example. Use CAR: Context, Action, Result.</li>
+          <li lang="ja">具体例のない回答。CARの順で話します。状況、行動、結果。</li>
+          <li lang="en">In a design interview, giving only the answer without your thought process.</li>
+          <li lang="ja">設計の面接で、考え方を示さず結論だけ答える。</li>
+          <li lang="en">Negative comments about a previous employer.</li>
+          <li lang="ja">前職について否定的に話す。</li>
+          <li lang="en">Blaming others instead of taking responsibility.</li>
+          <li lang="ja">責任を取らず、他人のせいにする。</li>
+          <li lang="en">A long self introduction.</li>
+          <li lang="ja">長い自己紹介。</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span lang="en">If you are moving to Japan from overseas</span><span lang="ja">海外から日本に来る方へ</span></summary>
+      <div class="body">
+        <div class="qa">
+          <p class="q" lang="en">Why Japan?</p>
+          <p class="q" lang="ja">なぜ日本ですか。</p>
+          <p class="a" lang="en">"Japan is technologically advanced" is a weak answer. That is true for consumer products, but many companies still run on fax machines and spreadsheets. Interviewers want a real connection: a Japanese partner, studying the language, a long interest in the culture. Never having visited Japan is a concern for most interviewers.</p>
+          <p class="a" lang="ja">「日本は技術が進んでいるから」という答えは弱いです。消費者向け製品では事実ですが、企業では今もFAXやExcelが使われています。面接官は日本との実際のつながりを知りたいのです。配偶者やパートナーが日本人、日本語を学んでいる、文化への関心が長い、など。来日経験がないことは、多くの面接官が懸念します。</p>
+        </div>
+        <div class="qa">
+          <p class="q" lang="en">How will you adjust to the culture here?</p>
+          <p class="q" lang="ja">日本の文化にどう適応しますか。</p>
+          <p class="a" lang="en">Japanese business culture avoids direct conflict and builds agreement slowly. A nod does not always mean yes. Recommended reading: The Culture Map by Erin Meyer. If this is your first role in Japan, ask the company for a buddy to help you settle in.</p>
+          <p class="a" lang="ja">日本のビジネス文化では対立を避け、時間をかけて合意を形成します。うなずいていても同意とは限りません。参考図書：エリン・メイヤー『異文化理解力』。日本で初めて働く場合は、会社にサポート役をお願いするとよいです。</p>
+        </div>
+        <div class="qa">
+          <p class="q" lang="en">Why did you leave your past roles?</p>
+          <p class="q" lang="ja">これまでの転職理由は何ですか。</p>
+          <p class="a" lang="en">Average tenure in Japan is 12.4 years, so job changes get more questions here. Keep your answers consistent across interviewers and keep them positive: career development, more leadership responsibility, deeper specialisation, relocation.</p>
+          <p class="a" lang="ja">日本の平均勤続年数は12.4年で、転職には質問が多くなります。面接官ごとに答えを変えず、前向きな理由で話してください。キャリアの発展、より大きな責任、専門性を深める、転居など。</p>
+        </div>
+      </div>
+    </details>
 
     <h3><span lang="en">Do not disclose your current salary or expectations</span><span lang="ja">現在の年収や希望額は伝えないでください</span></h3>
     <p lang="en">Once you name a number, you cannot negotiate above it. I handle this conversation for you.</p>
@@ -414,21 +868,25 @@ footer .wrap{max-width:640px;}
       <p lang="ja">または幅を持たせて答えてください。例えば1,500万円から1,700万円と伝えれば、交渉の余地が残ります。</p>
     </div>
 
-    <h3><span lang="en">SPI test (Synthetic Personality Inventory)</span><span lang="ja">SPI（総合適性検査）</span></h3>
-    <p lang="en">Designed for graduate hiring, but some Japanese companies still run it on all hires late in the process. It covers language, maths and personality.</p>
-    <p lang="ja">本来は新卒採用向けですが、選考の終盤で全員に実施する企業もあります。言語、非言語（計数）、性格検査で構成されています。</p>
-    <ul>
-      <li lang="en">Every question is timed and you cannot skip.</li>
-      <li lang="ja">各問題に制限時間があり、飛ばすことはできません。</li>
-      <li lang="en">Each section is separately timed. Overspend on one question and you lose the chance to answer others in that section.</li>
-      <li lang="ja">分野ごとにも制限時間があります。1問に時間を使いすぎると、その分野の残りの問題に答えられなくなります。</li>
-      <li lang="en">English overview: <a href="https://japan-dev.com/blog/spi-test">japan-dev.com/blog/spi-test</a></li>
-      <li lang="ja">英語の解説：<a href="https://japan-dev.com/blog/spi-test">japan-dev.com/blog/spi-test</a></li>
-      <li lang="en">Japanese YouTube channel: <a href="https://www.youtube.com/@oinary">youtube.com/@oinary</a></li>
-      <li lang="ja">日本語のYouTubeチャンネル：<a href="https://www.youtube.com/@oinary">youtube.com/@oinary</a></li>
-      <li lang="en">Japanese practice book, optional: <a href="https://amzn.asia/d/0EedvsT">amzn.asia/d/0EedvsT</a></li>
-      <li lang="ja">日本語の対策本（任意）：<a href="https://amzn.asia/d/0EedvsT">amzn.asia/d/0EedvsT</a></li>
-    </ul>
+    <details class="acc">
+      <summary><span lang="en">SPI test (Synthetic Personality Inventory)</span><span lang="ja">SPI（総合適性検査）</span></summary>
+      <div class="body">
+        <p lang="en">Designed for graduate hiring, but some Japanese companies still run it on all hires late in the process. It covers language, maths and personality.</p>
+        <p lang="ja">本来は新卒採用向けですが、選考の終盤で全員に実施する企業もあります。言語、非言語（計数）、性格検査で構成されています。</p>
+        <ul>
+          <li lang="en">Every question is timed and you cannot skip.</li>
+          <li lang="ja">各問題に制限時間があり、飛ばすことはできません。</li>
+          <li lang="en">Each section is separately timed. Overspend on one question and you lose the chance to answer others in that section.</li>
+          <li lang="ja">分野ごとにも制限時間があります。1問に時間を使いすぎると、その分野の残りの問題に答えられなくなります。</li>
+          <li lang="en">English overview: <a href="https://japan-dev.com/blog/spi-test">japan-dev.com/blog/spi-test</a></li>
+          <li lang="ja">英語の解説：<a href="https://japan-dev.com/blog/spi-test">japan-dev.com/blog/spi-test</a></li>
+          <li lang="en">Japanese YouTube channel: <a href="https://www.youtube.com/@oinary">youtube.com/@oinary</a></li>
+          <li lang="ja">日本語のYouTubeチャンネル：<a href="https://www.youtube.com/@oinary">youtube.com/@oinary</a></li>
+          <li lang="en">Japanese practice book, optional: <a href="https://amzn.asia/d/0EedvsT">amzn.asia/d/0EedvsT</a></li>
+          <li lang="ja">日本語の対策本（任意）：<a href="https://amzn.asia/d/0EedvsT">amzn.asia/d/0EedvsT</a></li>
+        </ul>
+      </div>
+    </details>
   </section>
 
   <section id="step3">
@@ -439,6 +897,11 @@ footer .wrap{max-width:640px;}
 
     <p lang="en">Send these to me after your second interview. Having them ready means no delay when an offer lands.</p>
     <p lang="ja">二次面接の後にお送りください。事前に準備しておくと、内定が出たときに手続きが遅れません。</p>
+    <div class="note">
+      <span class="lbl"><span lang="en">HOW YOUR DOCUMENTS ARE USED</span><span lang="ja">書類の取り扱いについて</span></span>
+      <p lang="en">These are used to prepare and check your offer. They are not sent to companies you are still interviewing with, and never to your current employer. Send them by LINE or email to me directly, not to a shared inbox.</p>
+      <p lang="ja">内定条件の作成と確認のために使用します。選考中の他社に送ることはありません。現在の勤務先に送ることもありません。共有の窓口ではなく、LINEまたはメールで私に直接お送りください。</p>
+    </div>
 
     <h3><span lang="en">Documents</span><span lang="ja">必要書類</span></h3>
     <p class="counter" data-counter="docs"></p>
@@ -531,9 +994,17 @@ footer .wrap{max-width:640px;}
       <li lang="ja"><b>日程調整は早めにご返信ください。</b>シニアクラスの面接枠はすぐに埋まります。</li>
     </ul>
 
-    <h3><span lang="en">Compliance registration</span><span lang="ja">コンプライアンス登録</span></h3>
-    <p lang="en">A colleague will send you a two minute DocuSign form asking for your name, mobile, email and signature. This is the compliance document that lets me send your CV to clients with your permission.</p>
-    <p lang="ja">担当者から、2分ほどで完了するDocuSignのフォームをお送りします。氏名、携帯番号、メールアドレス、署名をご記入ください。ご本人の同意のもとで書類を企業に送るために必要な書類です。</p>
+    <h3><span lang="en">How I protect your privacy</span><span lang="ja">個人情報の取り扱いについて</span></h3>
+    <ul>
+      <li lang="en"><b>Your CV is never sent anywhere without your approval for that company, every time.</b> Not once at the start, but for each company, each time.</li>
+      <li lang="ja"><b>書類は、企業ごとに毎回ご了承をいただいてから送ります。</b>最初に一度だけの同意ではありません。</li>
+      <li lang="en"><b>Tell me which companies to block.</b> Your current employer, its group companies, a former employer, a client you work with. I will not approach them and will not discuss you with them.</li>
+      <li lang="ja"><b>連絡してほしくない企業をお知らせください。</b>現在の勤務先とそのグループ会社、以前の勤務先、取引先など。こちらから連絡することも、あなたの話をすることもありません。</li>
+    </ul>
+
+    <h3><span lang="en">The permission form</span><span lang="ja">同意フォームについて</span></h3>
+    <p lang="en">A colleague sends a two minute DocuSign form asking for your name, mobile, email and signature. It records your permission for me to represent you. It is not a contract, it does not commit you to any company, and you can withdraw it at any time.</p>
+    <p lang="ja">担当者から、2分ほどで完了するDocuSignのフォームをお送りします。氏名、携帯番号、メールアドレス、署名をご記入ください。これは、私があなたの代理として活動することへの同意を記録するものです。契約ではなく、特定の企業への応募を約束するものでもありません。いつでも撤回できます。</p>
   </section>
 
   <section id="resources">
@@ -574,15 +1045,15 @@ footer .wrap{max-width:640px;}
 
 <footer>
   <div class="wrap">
-    <span lang="en">Robert Half, Tokyo. Last updated July 2026. Your checklist marks are kept on this page only and clear when you close it.</span>
-    <span lang="ja">ロバート・ハーフ 東京オフィス。最終更新：2026年7月。チェックした内容はこのページ内だけに保存され、閉じると消えます。</span>
+    <span lang="en">Robert Half, Tokyo. Last updated August 2026. Your checklist marks are kept on this page only and clear when you close it.</span>
+    <span lang="ja">ロバート・ハーフ 東京オフィス。最終更新：2026年8月。チェックした内容はこのページ内だけに保存され、閉じると消えます。</span>
   </div>
 </footer>
 
 <div class="cta">
   <div class="cta-in">
-    <a href="https://line.me/ti/p/VFbxzpEPH-"><span lang="en">Add me on LINE to get started</span><span lang="ja">LINEで相談をはじめる</span></a>
-    <small><span lang="en">Or email steven.li@roberthalf.jp</span><span lang="ja">またはメールでご連絡ください steven.li@roberthalf.jp</span></small>
+    <a href="https://cybersteve1650.github.io/jobs/"><span lang="en">View cyber security jobs</span><span lang="ja">サイバーセキュリティ求人を見る</span></a>
+    <small><span lang="en">Or contact me on LINE or at steven.li@roberthalf.jp</span><span lang="ja">またはLINEかメールでご連絡ください steven.li@roberthalf.jp</span></small>
   </div>
 </div>
 
