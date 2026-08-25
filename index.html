@@ -132,7 +132,7 @@ body.ja .hero p.lede{line-height:1.7;}
 .chip.on b{color:var(--white);}
 
 /* ---------- sections ---------- */
-main{padding:0 var(--pad) 120px;}
+main{padding:0 var(--pad) 20px;}
 section{padding:34px 0 4px;border-bottom:1px solid var(--concrete);}
 section:last-of-type{border-bottom:0;}
 h2{font-size:22px;font-weight:700;line-height:1.25;margin:0 0 14px;}
@@ -291,28 +291,6 @@ body.ja .script{font-style:normal;}
 .about b{color:var(--midnight);}
 .contact{font-size:14px;line-height:1.7;margin-top:16px;}
 
-/* ---------- sticky CTA ---------- */
-.cta{
-  position:fixed;left:0;right:0;bottom:0;z-index:50;
-  background:rgba(255,255,255,.96);
-  backdrop-filter:blur(8px);
-  border-top:1px solid var(--concrete);
-  padding:12px var(--pad) calc(12px + env(safe-area-inset-bottom));
-}
-.cta-in{max-width:640px;margin:0 auto;}
-.cta a{
-  display:flex;align-items:center;justify-content:center;gap:9px;
-  background:var(--red);color:var(--white);
-  text-decoration:none;font-weight:700;font-size:16px;
-  padding:15px;border-radius:12px;
-  transition:background .18s;
-}
-.cta a:active{background:#A80029;}
-.cta small{
-  display:block;text-align:center;color:#6C777E;
-  font-size:12px;margin-top:7px;
-}
-
 footer{
   padding:26px var(--pad) 30px;
   border-top:1px solid var(--concrete);
@@ -417,16 +395,6 @@ footer .wrap{max-width:640px;}
       <div class="numsq" aria-hidden="true">1</div>
       <h2><span lang="en">CV creation</span><span lang="ja">応募書類の作成</span></h2>
     </div>
-
-    <h3><span lang="en">Connect with me on LINE first</span><span lang="ja">まずLINEでつながってください</span></h3>
-    <p lang="en">Everything moves faster on LINE than email, especially interview scheduling.</p>
-    <p lang="ja">メールよりLINEの方が早く進みます。特に面接日程の調整がスムーズです。</p>
-    <ul>
-      <li lang="en">Add me directly: <a href="https://line.me/ti/p/VFbxzpEPH-">line.me/ti/p/VFbxzpEPH-</a></li>
-      <li lang="ja">こちらから追加してください：<a href="https://line.me/ti/p/VFbxzpEPH-">line.me/ti/p/VFbxzpEPH-</a></li>
-      <li lang="en">Or add my number to your contacts normally: <a href="tel:+818070422165">+81 70 1422 1650</a></li>
-      <li lang="ja">または電話番号で検索してください：<a href="tel:+818070422165">+81 70 1422 1650</a></li>
-    </ul>
 
     <h3><span lang="en">Send me your English CV in Word format</span><span lang="ja">英文の職務経歴書をWord形式でお送りください</span></h3>
     <ul>
@@ -1034,9 +1002,9 @@ footer .wrap{max-width:640px;}
       <p lang="ja">次回のCyber Risk Meetupでお会いしましょう。詳細はLinkedInに掲載しています：<a href="https://www.cyberriskmeetup.com/tokyo">cyberriskmeetup.com/tokyo</a></p>
       <p class="contact">
         <b><span lang="en">Robert Half, Tokyo office</span><span lang="ja">ロバート・ハーフ 東京オフィス</span></b><br>
-        <a href="tel:+818070422165">+81 70 1422 1650</a><br>
-        <a href="mailto:steven.li@roberthalf.jp">steven.li@roberthalf.jp</a><br>
-        <a href="https://www.linkedin.com/in/cybersteve/"><span lang="en">Full bio</span><span lang="ja">詳しいプロフィール</span></a>
+        <span lang="en">Message me on LinkedIn with your LINE ID or phone number, and I will contact you there. LINE is the fastest way to work together, especially for interview scheduling.</span>
+        <span lang="ja">LinkedInのメッセージで、LINE IDまたは電話番号をお送りください。こちらからご連絡します。特に面接日程の調整では、LINEが最もスムーズです。</span><br>
+        <a href="https://www.linkedin.com/in/cybersteve/"><span lang="en">LinkedIn profile and full bio</span><span lang="ja">LinkedInプロフィール・詳しい経歴</span></a>
       </p>
     </div>
   </section>
@@ -1049,13 +1017,6 @@ footer .wrap{max-width:640px;}
     <span lang="ja">ロバート・ハーフ 東京オフィス。最終更新：2026年8月。チェックした内容はこのページ内だけに保存され、閉じると消えます。</span>
   </div>
 </footer>
-
-<div class="cta">
-  <div class="cta-in">
-    <a href="https://cybersteve1650.github.io/jobs/"><span lang="en">View cyber security jobs</span><span lang="ja">サイバーセキュリティ求人を見る</span></a>
-    <small><span lang="en">Or contact me on LINE or at steven.li@roberthalf.jp</span><span lang="ja">またはLINEかメールでご連絡ください steven.li@roberthalf.jp</span></small>
-  </div>
-</div>
 
 <script>
 (function(){
