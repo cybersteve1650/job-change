@@ -324,11 +324,14 @@ footer .wrap{max-width:640px;}
 .xn .xn-ja{display:none}
 html[lang^="ja"] .xn .xn-ja{display:inline}
 html[lang^="ja"] .xn .xn-en{display:none}
+.top .brand,.brandline,.wordmark{transition:opacity .2s ease,visibility .2s ease}
+html.xn-scrolled .top .brand,html.xn-scrolled .brandline,html.xn-scrolled .wordmark{opacity:0;visibility:hidden}
 @media (min-width:700px){.xn-tabs{gap:30px}.xn a.xn-tab{font-size:15px}.xn a.xn-cta{font-size:14px;padding:0 16px;height:36px}}
-.brandbar{position:relative}
+.brandbar-in{height:56px;box-sizing:border-box;padding-top:0;padding-bottom:0}
+.xn{top:56px;z-index:35}
 .xn-in{max-width:640px;margin:0 auto;padding:0 var(--pad)}
-.stepnav{top:46px}
-html{scroll-padding-top:128px}
+.stepnav{top:102px}
+html{scroll-padding-top:184px}
 </style>
 </head>
 <body>
@@ -1123,6 +1126,10 @@ html{scroll-padding-top:128px}
     links.forEach(function(a){a.href=a.getAttribute("data-href")+"?lang="+(ja?"ja":"en")});
   }
   sync();
+  /* Hide the logo once the reader scrolls; the switches beside it stay. */
+  var root=document.documentElement, on=false;
+  function onScroll(){var s=window.scrollY>40; if(s!==on){on=s; root.classList.toggle("xn-scrolled",s)}}
+  window.addEventListener("scroll",onScroll,{passive:true}); onScroll();
   if(window.MutationObserver){new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]})}
 })();
 </script>
